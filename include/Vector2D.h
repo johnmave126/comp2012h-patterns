@@ -17,7 +17,7 @@ class Vector2D {
     public:
         /* default constructor/destructor */
         Vector2D();
-        ~Vector2D;
+        ~Vector2D();
         
         /* copy constructor */
         Vector2D(const Vector2D &);
