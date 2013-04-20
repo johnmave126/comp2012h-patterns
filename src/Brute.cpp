@@ -21,8 +21,8 @@ using std::endl;
 
 int main(int argc, char **argv) {
     int i;
-    deque<LineSeg> res;
-    deque<LineSeg>::Iterator itr(res);
+    Deque<LineSeg> res;
+    Deque<LineSeg>::Iterator itr(res);
     Point *p_arr;
     int size;
     ifstream is("input.txt", ifstream::in);

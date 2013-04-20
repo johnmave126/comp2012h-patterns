@@ -55,10 +55,10 @@ static bool PointCmp(const Point* &a, const Point* &b) {
     return (*a) < (*b);
 }
 
-deque<LineSeg> Brute(Point* point_list, int size) {
+Deque<LineSeg> Brute(Point* point_list, int size) {
     int i, j, k, l;
     Point **sorting_list = new Point*[size];
-    deque<LineSeg> result;
+    Deque<LineSeg> result;
 
     //Copy the data into the list
     for(i = 0; i < size; i++) {
@@ -92,10 +92,10 @@ deque<LineSeg> Brute(Point* point_list, int size) {
     return result;
 }
 
-deque<LineSeg> Fast(Point* point_list, int size) {
+Deque<LineSeg> Fast(Point* point_list, int size) {
     int i, j, k, l;
     Point *sorting_list = new Point[size];
-    deque<LineSeg> result;
+    Deque<LineSeg> result;
 
     memcpy(sorting_list, point_list, size * sizeof(Point));
     delete [] sorting_list;
