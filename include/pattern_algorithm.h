@@ -59,7 +59,7 @@ ostream& operator<<(ostream&, const LineSeg&);
  * processing the point_list using Brute Force method and return a deque
  * of LineSeg meeting requirement
  */
-deque<LineSeg> Brute(Point* point_list, int size);
+template deque<LineSeg> Brute(Point* point_list, int size);
 
 /*
  * Brute
@@ -70,6 +70,6 @@ deque<LineSeg> Brute(Point* point_list, int size);
  * processing the point_list using Fast method and return a deque
  * of LineSeg meeting requirement
  */
-deque<LineSeg> Fast(Point* point_list, int size);
+template deque<LineSeg> Fast(Point* point_list, int size);
 
 #endif
