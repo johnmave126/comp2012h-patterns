@@ -88,7 +88,7 @@ first: all
 
 ####### Build rules
 
-all: $(TARGET) resource
+all: path $(TARGET) resource
 
 $(DESTDIR)/Brute: $(UICDECLS) $(OBJECTS) $(OBJMOC)  
 	test -d build_bin/ || mkdir -p build_bin/
@@ -120,12 +120,16 @@ clean: mocclean
 ####### Sub-libraries
 
 distclean: clean
-	-$(DEL_FILE) build_bin/$(TARGET) $(TARGET)
+	-$(DEL_FILE) $(TARGET)
 
 
 FORCE:
 
 ####### Compile
+
+.PHONY: path
+path:
+	test -d build_tmp/ || mkdir -p build_tmp/
 
 build_tmp/Brute.o: src/Brute.cpp include/pattern_algorithm.h include/Point.h \
  include/Vector2D.h include/deque.h include/Point.h include/Vector2D.h \
