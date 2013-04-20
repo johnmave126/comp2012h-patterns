@@ -32,7 +32,7 @@ class LineSeg {
         LineSeg(int);
         
         /* operator[] for iterate */
-        Point& operator[](int) const;
+        Point* operator[](int) const;
 
         /*
          * getSize

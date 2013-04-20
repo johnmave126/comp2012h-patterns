@@ -27,11 +27,11 @@ LineSeg::LineSeg(int s)
     memset(arr_point, 0, sizeof(Point*) * s);
 }
 
-Point& LineSeg::operator[](int idx) {
+Point* LineSeg::operator[](int idx) {
     if(idx < 0 || idx >= size) {
         throw runtime_error("Out of range");
     }
-    return *arr_point[idx];
+    return arr_point[idx];
 }
 
 int LineSeg::getSize() {
@@ -42,10 +42,10 @@ ostream& operator<<(ostream& os, const LineSeg& l) {
     int i, s = l.getSize();
     os << s << ":";
     for(i = 0; i < s - 1; i++) {
-        os << l[i] << "->";
+        os << *l[i] << "->";
     }
     if(i < s) {
-        os << l[i];
+        os << *l[i];
     }
     return os;
 }
@@ -79,10 +79,11 @@ Deque<LineSeg> Brute(Point* point_list, int size) {
                     if(sorting_list[i]->isCollinear(*sorting_list[j], *sorting_list[l])) {
                         //Add to result
                         LineSeg tmp(4);
-                        tmp.push(sorting_list[i]);
-                        tmp.push(sorting_list[j]);
-                        tmp.push(sorting_list[k]);
-                        tmp.push(sorting_list[l]);
+                        tmp[0] = sorting_list[i];
+                        tmp[1] = sorting_list[j];
+                        tmp[2] = sorting_list[k];
+                        tmp[3] = sorting_list[l];
+                        result.addLast(tmp);
                     }
                 }
             }
