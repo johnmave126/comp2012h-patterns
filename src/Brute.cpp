@@ -14,6 +14,7 @@
 #include "Vector2D.h"
 #include "deque.h"
 #include <iostream>
+#include <fstream>
 
 using std::ifstream;
 using std::cout;
