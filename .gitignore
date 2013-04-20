@@ -16,8 +16,10 @@
 *.pro.user.*
 moc_*.cpp
 qrc_*.cpp
-Makefile
 *-build-*
 
 #sublime-text-2
 *.sublime*
+
+#build_ignore
+build_*
