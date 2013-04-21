@@ -38,7 +38,7 @@ istream& operator>>(istream& is, Point& p) {
 }
 
 ostream& operator<<(ostream& os, const Point& p) {
-    os << " (" << l[i].getX() << ", " << l[i].getY() << ") ";
+    os << " (" << p.getX() << ", " << p.getY() << ") ";
     return os;
 }
 
