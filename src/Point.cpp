@@ -53,7 +53,7 @@ Comparator::Comparator(const Point &p)
 :origin(p) {
 }
 
-bool Comparator::operator()(const Point &p1, const Point &p2) {
+bool Comparator::operator()(const Point &p1, const Point &p2) const {
     Vector2D l1 = p1 - origin, l2 = p2 - origin;
     //Reverse if below y axis
     if(l1.getY() < 0) {
