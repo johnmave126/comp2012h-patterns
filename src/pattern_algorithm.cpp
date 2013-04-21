@@ -35,7 +35,7 @@ LineSeg::LineSeg(int s)
     memset(arr_point, 0, sizeof(Point*) * s);
 }
 
-Point* LineSeg::operator[](int idx) {
+Point* LineSeg::operator[](int idx) const {
     if(idx < 0 || idx >= size) {
         throw runtime_error("Out of range");
     }

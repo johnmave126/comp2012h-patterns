@@ -699,6 +699,7 @@ Deque<T>& Deque<T>::operator=(const Deque<T>& q) {
         //Iterate over the list to do deep copy
         addLast(*(t->data));
     }
+    return (*this);
 }
 
 template<typename T>
