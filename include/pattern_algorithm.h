@@ -36,6 +36,7 @@ class LineSeg {
         
         /* operator[] for iterate */
         Point*& operator[](int);
+        Point* const& operator[](int) const;
 
         /*
          * getSize

@@ -42,6 +42,13 @@ Point*& LineSeg::operator[](int idx) {
     return arr_point[idx];
 }
 
+Point* const& LineSeg::operator[](int idx) const {
+    if(idx < 0 || idx >= size) {
+        throw runtime_error("Out of range");
+    }
+    return arr_point[idx];
+}
+
 int LineSeg::getSize() const {
     return size;
 }
