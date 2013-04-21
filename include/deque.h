@@ -100,7 +100,7 @@ class Deque {
          *
          * return an iterator that can iterate from front to end
          */
-        Iterator iterator();
+        Iterator iterator() const;
         
     private:
         //Declare nested class Node
@@ -794,7 +794,7 @@ T Deque<T>::removeLast() {
 }
 
 template<typename T>
-typename Deque<T>::Iterator Deque<T>::iterator() {
+typename Deque<T>::Iterator Deque<T>::iterator() const {
     if(isEmpty()) {
         return Iterator(*head);
     }
