@@ -105,7 +105,7 @@ void Vector2D::setY(int py) {
 }
 
 Vector2D operator*(const Vector2D& v, int r) {
-    return Vector(v.getX() * r, v.getY * r);
+    return Vector(v.getX() * r, v.getY() * r);
 }
 
 Vector2D operator*(int r, const Vector2D& v) {
