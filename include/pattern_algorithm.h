@@ -42,7 +42,7 @@ class LineSeg {
          *
          * return the number of point on this line segment
          */
-        int getSize();
+        int getSize() const;
         
     private:
         Point** arr_point;

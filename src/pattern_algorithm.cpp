@@ -42,7 +42,7 @@ Point* LineSeg::operator[](int idx) const {
     return arr_point[idx];
 }
 
-int LineSeg::getSize() {
+int LineSeg::getSize() const {
     return size;
 }
 
