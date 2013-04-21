@@ -20,12 +20,12 @@ bool Point::isCollinear(const Point &p1, const Point &p2) const {
 }
 
 void Point::draw(QPainter *painter, double scaleX, double scaleY, int leftX, int bottomY) const {
-    painter.setBrush(QColor(29, 37, 183));
-    painter.drawEllipse(x * scaleX + leftX, bottomY - y * scaleY, 6, 6);
+    painter->setBrush(QColor(29, 37, 183));
+    painter->drawEllipse(x * scaleX + leftX, bottomY - y * scaleY, 6, 6);
 }
 
 void Point::drawTo(const Point& p, QPainter *painter, double scaleX, double scaleY, int leftX, int bottomY) const {
-    painter.drawLine(x * scaleX + leftX, bottomY - y * scaleY,
+    painter->drawLine(x * scaleX + leftX, bottomY - y * scaleY,
                     p.x * scaleX + leftX, bottomY - p.y * scaleY);
 }
 
