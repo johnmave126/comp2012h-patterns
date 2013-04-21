@@ -27,7 +27,10 @@ class LineSeg {
         /* default constructor/destructor */
         LineSeg();
         ~LineSeg();
-        
+       
+        /* copy constructor */
+        LineSeg(const LineSeg&);
+
         /* conversion constructor */
         LineSeg(int);
         

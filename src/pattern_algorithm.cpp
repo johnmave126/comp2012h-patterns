@@ -22,6 +22,14 @@ LineSeg::~LineSeg() {
     }
 }
 
+LineSeg::LineSeg(const LineSeg& l)
+:arr_point((l.size > 0)?(new Point*[l.size]):NULL),
+ size(l.size) {
+    if(size) {
+        memcpy(arr_point, l.arr_point, size * sizeof(Point*));
+    }
+}
+
 LineSeg::LineSeg(int s)
 :arr_point(new Point*[s]), size(s) {
     memset(arr_point, 0, sizeof(Point*) * s);
