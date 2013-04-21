@@ -684,7 +684,7 @@ Deque<T>::Deque(const Deque<T>& q)
     Node *t;
     for(t = q.head->next; t->next; t = t->next) {
         //Iterate over the list to do deep copy
-        addLast(t->data);
+        addLast(*(t->data));
     }
 }
 
@@ -697,7 +697,7 @@ Deque<T>& Deque<T>::operator=(const Deque<T>& q) {
     }
     for(t = q.head->next; t->next; t = t->next) {
         //Iterate over the list to do deep copy
-        addLast(t->data);
+        addLast(*(t->data));
     }
 }
 
