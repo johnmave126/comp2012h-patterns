@@ -16,7 +16,7 @@
 
 bool Point::isCollinear(const Point &p1, const Point &p2) const {
     //Collinear if sin<p1-this, p2-this> = 0
-    return ((p1 - (*this)) ^ (p2 - (*this)) == 0);
+    return (( (p1 - (*this)) ^ (p2 - (*this)) ) == 0);
 }
 
 void Point::draw(QPainter *painter, double scaleX, double scaleY, int leftX, int bottomY) const {
