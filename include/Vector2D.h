@@ -104,7 +104,7 @@ class Vector2D {
          */
         void setY(int py);
         
-    private:
+    protected:
         //Two component
         int x, y;
 };
