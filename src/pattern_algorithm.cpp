@@ -59,7 +59,7 @@ ostream& operator<<(ostream& os, const LineSeg& l) {
 }
 
 //Used to do a rough sort of Point*
-static bool PointCmp(const Point* &a, const Point* &b) {
+static bool PointCmp(Point* const &a, Point* const &b) {
     return (*a) < (*b);
 }
 
