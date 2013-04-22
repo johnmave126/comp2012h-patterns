@@ -4,18 +4,21 @@
  * Stu ID: 20090398
  * 2013 Spring
  *
- * Point.cpp
+ * Fast.cpp
  *
- * The implementation of point
+ * The fast version of pattern check
  */
 
+#include "pattern_algorithm.h"
 #include "Point.h"
-#include "computational_geometry.h"
+#include "Vector2D.h"
+#include "deque.h"
+#include <iostream>
+#include <fstream>
 
-bool isCollinear(const Point &p1, const Point &p2) const {
-    //Collinear if sin<p1-this, p2-this> = 0
-    return ((p1 - (*this)).cross(p2 - (*this))) == 0;
-}
+using std::ifstream;
+using std::cout;
+using std::endl;
 
 int main(int argc, char **argv) {
     int i;
