@@ -96,7 +96,7 @@ $(DESTDIR)/Brute: $(UICDECLS) $(OBJECTS) $(OBJMOC)
 
 .PHONY: resource
 resource:
-	test -d resource/ && cp -r resource/* build_bin
+	(test -d resource/ && cp -r resource/* build_bin/) || true 
 
 mocables: $(SRCMOC)
 uicables: $(UICDECLS) $(UICIMPLS)
