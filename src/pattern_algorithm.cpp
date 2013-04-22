@@ -147,7 +147,7 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
                 tmp_l = new LineSeg(onLine + 1);
                 (*tmp_l)[0] = origin;
                 for(k = 0; k < onLine; k++) {
-                    (*tmp_l)[k] = sorting_list[j + k];
+                    (*tmp_l)[k + 1] = sorting_list[j + k];
                 }
                 result.addLast(*tmp_l);
                 delete tmp_l;
