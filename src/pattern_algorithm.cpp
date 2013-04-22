@@ -74,6 +74,7 @@ Deque<LineSeg> Brute(Point* point_list, int size) {
     int i, j, k, l;
     Point **sorting_list = new Point*[size];
     Deque<LineSeg> result;
+    LineSeg tmp(4);
 
     //Copy the data into the list
     for(i = 0; i < size; i++) {
@@ -93,7 +94,6 @@ Deque<LineSeg> Brute(Point* point_list, int size) {
                 for(l = k + 1; l < size; l++) {
                     if(sorting_list[i]->isCollinear(*sorting_list[j], *sorting_list[l])) {
                         //Add to result
-                        LineSeg tmp(4);
                         tmp[0] = sorting_list[i];
                         tmp[1] = sorting_list[j];
                         tmp[2] = sorting_list[k];
@@ -109,11 +109,52 @@ Deque<LineSeg> Brute(Point* point_list, int size) {
 }
 
 Deque<LineSeg> Fast(Point* point_list, int size) {
-    int i, j, k, l;
-    Point *sorting_list = new Point[size];
+    int i, j, k, onLine;
+    Point **sorting_list = new Point*[size];
     Deque<LineSeg> result;
+    LineSeg *tmp_l;
+    Point *tmp_swap, *origin;
 
-    memcpy(sorting_list, point_list, size * sizeof(Point));
+    for(i = 0; i < size; i++) {
+        //Copy the original into the list
+        for(j = 0; j < size; j++) {
+            sorting_list[j] = &point_list[j];
+        }
+        //Swap the current origin to sorting_list[0]
+        tmp_swap = sorting_list[0];
+        sorting_list[0] = sorting_list[i];
+        sorting_list[i] = tmp_swap;
+
+        origin = sorting_list[0];
+
+        //Sort the Points relative to sorting_list[0]
+        sort(sorting_list + 1, sorting_list + size, Comparator(*origin));
+
+        //Iterate over the sorted list
+        j = 1;
+        while(j < size) {
+            onLine = 1;
+            //Go over the line
+            while(j + onLine < size && origin->isCollinear(*sorting_list[j],
+             *sorting_list[j + onLine])) {
+                onLine++;
+            }
+            //For order correctness and uniqueness
+            //The origin should be the left-bottom most point on the line
+            //Also there should be no less than 4 points on the line
+            if((*origin) < (*sorting_list[j]) && onLine >= 3) {
+                //Insert the line
+                tmp_l = new LineSeg(onLine + 1);
+                (*tmp_l)[0] = origin;
+                for(k = 0; k < onLine; k++) {
+                    (*tmp_l)[k] = sorting_list[j + k];
+                }
+                result.addLast(*tmp_l);
+                delete tmp_l;
+            }
+        }
+    }
+
     delete [] sorting_list;
     return result;
 }
