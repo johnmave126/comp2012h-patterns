@@ -54,11 +54,11 @@ SOURCES = src/Brute.cpp \
 		src/pattern_algorithm.cpp \
 		src/Point.cpp \
 		src/Vector2D.cpp 
-OBJECTS = build_tmp/Brute.o \
-		build_tmp/Fast.o \
-		build_tmp/pattern_algorithm.o \
+OBJECTS = build_tmp/pattern_algorithm.o \
 		build_tmp/Point.o \
-		build_tmp/Vector2D.o 
+		build_tmp/Vector2D.o
+BRUTE_O = build_tmp/Brute.o
+FAST_O = build_tmp/Fast.o
 FORMS = 
 UICDECLS = 
 UICIMPLS = 
@@ -93,11 +93,11 @@ all: path $(TARGET) resource
 
 $(DESTDIR)/Brute: $(UICDECLS) $(OBJECTS) $(OBJMOC)  
 	test -d build_bin/ || mkdir -p build_bin/
-	$(LINK) $(LFLAGS) -o $(DESTDIR)/Brute $(OBJECTS) $(OBJMOC) $(OBJCOMP) $(LIBS)
+	$(LINK) $(LFLAGS) -o $(DESTDIR)/Brute $(OBJECTS) $(BRUTE_O) $(OBJMOC) $(OBJCOMP) $(LIBS)
 
 $(DESTDIR)/Fast: $(UICDECLS) $(OBJECTS) $(OBJMOC)  
 	test -d build_bin/ || mkdir -p build_bin/
-	$(LINK) $(LFLAGS) -o $(DESTDIR)/Fast $(OBJECTS) $(OBJMOC) $(OBJCOMP) $(LIBS)
+	$(LINK) $(LFLAGS) -o $(DESTDIR)/Fast $(OBJECTS) $(FAST_O) $(OBJMOC) $(OBJCOMP) $(LIBS)
 
 .PHONY: resource
 resource:
