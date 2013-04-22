@@ -152,6 +152,8 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
                 result.addLast(*tmp_l);
                 delete tmp_l;
             }
+
+            j += onLine;
         }
     }
 
