@@ -73,5 +73,5 @@ bool Comparator::operator()(const Point &p1, const Point &p2) const {
 
 bool Comparator::operator()(Point* const &p1, Point* const &p2) const {
     //Reuse operator() above
-    return operator(*p1, *p2);
+    return this->operator(*p1, *p2);
 }
