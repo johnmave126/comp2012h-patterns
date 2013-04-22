@@ -64,7 +64,7 @@ UICDECLS =
 UICIMPLS = 
 SRCMOC   = 
 OBJMOC = 
-DESTDIR  = build_bin/
+DESTDIR  = build_bin
 TARGET   = $(DESTDIR)/Brute $(DESTDIR)/Fast
 
 first: all
