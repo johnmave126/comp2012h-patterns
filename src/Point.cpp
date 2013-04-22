@@ -26,7 +26,7 @@ void Point::draw(QPainter *painter, double scaleX, double scaleY, int leftX, int
 
 void Point::drawTo(const Point& p, QPainter *painter, double scaleX, double scaleY, int leftX, int bottomY) const {
     painter->drawLine(static_cast<int>(x * scaleX + leftX), static_cast<int>(bottomY - y * scaleY),
-                    p.x * scaleX + leftX, bottomY - p.y * scaleY);
+                    static_cast<int>(p.x * scaleX + leftX), static_cast<int>(bottomY - p.y * scaleY));
 }
 
 istream& operator>>(istream& is, Point& p) {
@@ -72,6 +72,6 @@ bool Comparator::operator()(const Point &p1, const Point &p2) const {
 }
 
 bool Comparator::operator()(Point* const &p1, Point* const &p2) const {
-    //Reuse operator() above
-    return this->operator(*p1, *p2);
+    //Reuse( operator() above
+        return operator()(*p1, *p2);
 }
