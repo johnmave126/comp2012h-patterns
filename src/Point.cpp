@@ -68,7 +68,7 @@ bool Comparator::operator()(const Point &p1, const Point &p2) const {
     else if(l2.getY() == 0 && l2.getX() < 0) {
         l2 = -l2;
     }
-    return ( (l1 ^ l2) == 0)?(l1 < l2):( (l1 ^ l2) > 0);
+    return ( (l1 ^ l2) == 0)?(p1 < p2):( (l1 ^ l2) > 0);
 }
 
 bool Comparator::operator()(Point* const &p1, Point* const &p2) const {
