@@ -78,6 +78,7 @@ class Comparator {
         
         /* reload operator() to act as a function object */
         bool operator()(const Point&, const Point&) const;
+        bool operator()(Point* const &, Point* const &) const;
         
     private:
         Point origin;
