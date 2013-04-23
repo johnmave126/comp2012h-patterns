@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
     int size;
     ifstream is("input.txt", ifstream::in);
 
-    readPoints(is, p_arr, &size);
+    p_arr = readPoints(is, &size);
     //res = Fast(p_arr, size);
     printLines(cout, res);
 
