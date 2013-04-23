@@ -4,12 +4,12 @@
  * Stu ID: 20090398
  * 2013 Spring
  *
- * pattern_algorithm.cpp
+ * patterns_algorithm.cpp
  *
  * Algorithms of patterns
  */
 
-#include "pattern_algorithm.h"
+#include "patterns_algorithm.h"
 #include "Point.h"
 
 LineSeg::LineSeg()

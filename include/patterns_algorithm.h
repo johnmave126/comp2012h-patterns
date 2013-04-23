@@ -4,13 +4,13 @@
  * Stu ID: 20090398
  * 2013 Spring
  *
- * pattern_algorithm.h
+ * patterns_algorithm.h
  *
  * The header file for algorithms of patterns
  */
 
-#ifndef _PATTERN_ALGORITHM_H
-#define _PATTERN_ALGORITHM_H
+#ifndef _PATTERNS_ALGORITHM_H
+#define _PATTERNS_ALGORITHM_H
 
 #include "Point.h"
 #include "deque.h"

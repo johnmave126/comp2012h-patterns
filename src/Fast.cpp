@@ -9,7 +9,8 @@
  * The fast version of pattern check
  */
 
-#include "pattern_algorithm.h"
+#include "patterns_algorithm.h"
+#include "patterns_common.cpp"
 #include "Point.h"
 #include "Vector2D.h"
 #include "deque.h"
@@ -21,24 +22,15 @@ using std::cout;
 using std::endl;
 
 int main(int argc, char **argv) {
-    int i;
     Deque<LineSeg> res;
-    Deque<LineSeg>::Iterator itr(res);
     Point *p_arr;
     int size;
     ifstream is("input.txt", ifstream::in);
-    is >> size;
-    p_arr = new Point[size];
 
-    for(i = 0; i < size; i++) {
-        is >> p_arr[i];
-    }
-
+    readPoints(is, p_arr, &size);
     res = Fast(p_arr, size);
+    printLines(cout, res);
 
-    for(i = 0; i < res.size(); i++, itr++) {
-        cout << (*itr) << endl;
-    }
     delete [] p_arr;
     return 0;
 }
