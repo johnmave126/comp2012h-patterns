@@ -10,7 +10,7 @@
  */
 
 #include "patterns_algorithm.h"
-#include "patterns_common.cpp"
+#include "patterns_common.h"
 #include "Point.h"
 #include "Vector2D.h"
 #include "deque.h"
