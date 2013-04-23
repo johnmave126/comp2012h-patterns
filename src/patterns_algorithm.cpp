@@ -124,6 +124,9 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
              *sorting_list[j + onLine])) {
                 onLine++;
             }
+            //Test only
+            j += onLine;
+            continue;
             //For order correctness and uniqueness
             //The origin should be the left-bottom most point on the line
             //Also there should be no less than 4 points on the line
