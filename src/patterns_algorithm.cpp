@@ -92,7 +92,7 @@ Deque<LineSeg> Brute(Point* point_list, int size) {
 }
 
 Deque<LineSeg> Fast(Point* point_list, int size) {
-    int i, j, k, onLine;
+    int i, j, onLine;
     Point **original_list = new Point*[size];
     Point **sorting_list = new Point*[size];
     Deque<LineSeg> result;
