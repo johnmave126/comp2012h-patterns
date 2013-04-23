@@ -20,18 +20,6 @@
 using std::istream;
 using std::ostream;
 
-//Other utility functions
-/*
- * readInt
- *
- * is: the input stream
- *
- * read from a stream, generate a integer
- * The >> operator is too slow, so create this function
- * without verifying data validity
- */
-int readInt(istream& is);
-
 /*
  * readPoints
  *
