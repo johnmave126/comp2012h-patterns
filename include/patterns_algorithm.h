@@ -77,6 +77,22 @@ Deque<LineSeg> Brute(Point* point_list, int size);
 Deque<LineSeg> Fast(Point* point_list, int size);
 
 //Include those inline functions
-#include "src/patterns_algorithm.cpp"
+inline Point*& LineSeg::operator[](int idx) {
+    if(idx < 0 || idx >= size) {
+        throw runtime_error("Out of range");
+    }
+    return arr_point[idx];
+}
+
+inline Point* const& LineSeg::operator[](int idx) const {
+    if(idx < 0 || idx >= size) {
+        throw runtime_error("Out of range");
+    }
+    return arr_point[idx];
+}
+
+inline int LineSeg::getSize() const {
+    return size;
+}
 
 #endif

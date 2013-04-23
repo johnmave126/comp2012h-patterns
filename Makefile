@@ -52,8 +52,14 @@ HEADERS = include/deque.h \
 		include/Vector2D.h 
 SOURCES = src/Brute.cpp \
 		src/Fast.cpp \
-		src/patterns_common.cpp 
-OBJECTS = build_tmp/patterns_common.o 
+		src/patterns_common.cpp \
+		src/patterns_algorithm.cpp \
+		src/Vector2D.cpp \
+		src/Point.cpp
+OBJECTS = build_tmp/patterns_common.o \
+		build_tmp/patterns_algorithm.o \
+		build_tmp/Vector2D.o \
+		build_tmp/Point.o
 BRUTE_O = build_tmp/Brute.o
 FAST_O = build_tmp/Fast.o
 FORMS = 
@@ -134,16 +140,26 @@ path:
 	test -d build_tmp/ || mkdir -p build_tmp/
 
 build_tmp/Brute.o: src/Brute.cpp include/patterns_algorithm.h include/Point.h \
- include/Vector2D.h include/deque.h include/Point.h include/Vector2D.h \
- include/deque.h
+ include/Vector2D.h include/deque.h src/patterns_common.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/Brute.o src/Brute.cpp
 
 build_tmp/Fast.o: src/Fast.cpp include/patterns_algorithm.h include/Point.h \
- include/Vector2D.h include/deque.h include/Point.h include/Vector2D.h \
- include/deque.h
+ include/Vector2D.h include/deque.h src/patterns_common.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/Fast.o src/Fast.cpp
 
 build_tmp/patterns_common.o: src/patterns_common.cpp \
  include/patterns_common.h include/Point.h include/Vector2D.h \
  include/deque.h include/Point.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/patterns_common.o src/patterns_common.cpp
+
+build_tmp/patterns_algorithm.o: src/patterns_algorithm.cpp \
+ include/patterns_algorithm.h include/Point.h include/Vector2D.h \
+ include/deque.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/patterns_algorithm.o src/patterns_algorithm.cpp
+
+build_tmp/Point.o: src/Point.cpp include/Point.h include/Vector2D.h \
+ include/Vector2D.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/Point.o src/Point.cpp
+
+build_tmp/Vector2D.o: src/Vector2D.cpp include/Vector2D.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/Vector2D.o src/Vector2D.cpp

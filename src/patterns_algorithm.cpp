@@ -9,6 +9,7 @@
  * Algorithms of patterns
  */
 
+#include "patterns_algorithm.h"
 #include "Point.h"
 
 LineSeg::LineSeg()
@@ -34,24 +35,6 @@ LineSeg::LineSeg(int s)
     memset(arr_point, 0, sizeof(Point*) * s);
 }
 
-inline Point*& LineSeg::operator[](int idx) {
-    if(idx < 0 || idx >= size) {
-        throw runtime_error("Out of range");
-    }
-    return arr_point[idx];
-}
-
-inline Point* const& LineSeg::operator[](int idx) const {
-    if(idx < 0 || idx >= size) {
-        throw runtime_error("Out of range");
-    }
-    return arr_point[idx];
-}
-
-inline int LineSeg::getSize() const {
-    return size;
-}
-
 ostream& operator<<(ostream& os, const LineSeg& l) {
     int i, s = l.getSize();
     os << s << ":";
@@ -65,7 +48,7 @@ ostream& operator<<(ostream& os, const LineSeg& l) {
 }
 
 //Used to do a rough sort of Point*
-inline static bool PointCmp(Point* const &a, Point* const &b) {
+static inline bool PointCmp(Point* const &a, Point* const &b) {
     return (*a) < (*b);
 }
 

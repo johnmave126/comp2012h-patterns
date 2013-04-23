@@ -113,7 +113,92 @@ class Vector2D {
 inline Vector2D operator*(const Vector2D&, int);
 inline Vector2D operator*(int, const Vector2D&);
 
-//Include those inline functions
-#include "src/Vector2D.cpp"
+//inline functions
+inline Vector2D& Vector2D::operator=(const Vector2D &v) {
+    x = v.x;
+    y = v.y;
+    return (*this);
+}
+
+inline Vector2D Vector2D::operator+(const Vector2D &v) const {
+    return Vector2D(x + v.x, y + v.y);
+}
+
+inline Vector2D Vector2D::operator-(const Vector2D &v) const {
+    return Vector2D(x - v.x, y - v.y);
+}
+
+inline Vector2D Vector2D::operator-() const {
+    return Vector2D(-x, -y);
+}
+
+inline int Vector2D::operator*(const Vector2D &v) const {
+    return (x * v.x) + (y * v.y);
+}
+
+inline int Vector2D::operator^(const Vector2D &v) const {
+    return (x * v.y) - (y * v.x);
+}
+
+inline bool Vector2D::operator==(const Vector2D &v) const {
+    return (x == v.x) && (y == v.y);
+}
+
+inline bool Vector2D::operator!=(const Vector2D &v) const {
+    //Reuse operator==
+    return !((*this) == v);
+}
+
+inline bool Vector2D::operator<(const Vector2D &v) const {
+    return (x == v.x)?(y < v.y):(x < v.x);
+}
+
+inline bool Vector2D::operator>=(const Vector2D &v) const {
+    //Reuse oeprator<
+    return !((*this) < v);
+}
+
+inline bool Vector2D::operator>(const Vector2D &v) const {
+    return (x == v.x)?(y > v.y):(x > v.x);
+}
+
+inline bool Vector2D::operator<=(const Vector2D &v) const {
+    //Reuse oeprator>
+    return !((*this) > v);
+}
+
+inline int Vector2D::dot(const Vector2D &v) const {
+    //Reuse operator*
+    return (*this) * v;
+}
+
+inline int Vector2D::cross(const Vector2D &v) const {
+    return (*this) ^ v;
+}
+
+inline int Vector2D::getX() const {
+    return x;
+}
+
+inline int Vector2D::getY() const {
+    return y;
+}
+
+inline void Vector2D::setX(int px) {
+    x = px;
+}
+
+inline void Vector2D::setY(int py) {
+    y = py;
+}
+
+inline Vector2D operator*(const Vector2D& v, int r) {
+    return Vector2D(v.getX() * r, v.getY() * r);
+}
+
+inline Vector2D operator*(int r, const Vector2D& v) {
+    //Reuse operator* of reverse order
+    return (v * r);
+}
 
 #endif
