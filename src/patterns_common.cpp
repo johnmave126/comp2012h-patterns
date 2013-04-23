@@ -9,6 +9,7 @@
  * commnonly used funcions
  */
 
+#include "patterns_common.h"
 #include "Point.h"
 #include "deque.h"
 #include "patterns_algorithm.h"
