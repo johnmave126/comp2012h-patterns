@@ -19,9 +19,21 @@ using std::istream;
 using std::ostream;
 using std::endl;
 
+int readInt(istream& is) {
+    char c;
+    int i;
+    while(c = is.get(), c < '0' || c > '9') {
+    }
+    i = c - '0';
+    while(c = is.get(), c >= '0' && c <= '9' && is.good()) {
+        i = i * 10 + c - '0';
+    }
+    return i;
+}
+
 Point* readPoints(istream& is, int *size) {
     Point *p_arr;
-    int i, s;
+    int i, s, t;
     is >> s;
     if(size) {
         *size = s;
@@ -29,7 +41,10 @@ Point* readPoints(istream& is, int *size) {
 
     p_arr = new Point[s];
     for(i = 0; i < s; i++) {
-        is >> p_arr[i];
+        t = readInt(is);
+        p_arr[i].setX(t);
+        t = readInt(is);
+        p_arr[i].setY(t);
     }
 
     return p_arr;
