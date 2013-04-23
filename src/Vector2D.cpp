@@ -9,6 +9,7 @@
  * The implementation of vector
  */
 
+#pragma message("here")
 
 Vector2D::Vector2D()
 :x(0), y(0) {
