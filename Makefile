@@ -12,8 +12,8 @@ CC       = gcc
 CXX      = g++
 LEX      = flex
 YACC     = yacc
-CFLAGS   = -pipe -Wall -W -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic  -DQT_NO_DEBUG -DQT_SHARED -DQT_THREAD_SUPPORT
-CXXFLAGS = -pipe -Wall -W -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic  -DQT_NO_DEBUG -DQT_SHARED -DQT_THREAD_SUPPORT
+CFLAGS   = -pipe -Wextra -Wall -W -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic  -DQT_NO_DEBUG -DQT_SHARED -DQT_THREAD_SUPPORT
+CXXFLAGS = -pipe -Wextra -Wall -W -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic  -DQT_NO_DEBUG -DQT_SHARED -DQT_THREAD_SUPPORT
 LEXFLAGS = 
 YACCFLAGS= -d
 INCPATH  = -I/usr/lib64/qt-3.3/mkspecs/linux-g++-64 -I. -Iinclude -I$(QTDIR)/include -Ibuild_tmp/
@@ -121,7 +121,7 @@ uiclean:
 yaccclean:
 lexclean:
 clean: mocclean
-	-$(DEL_FILE) $(OBJECTS) $(BRUTE_O) $(BRUTE_O)
+	-$(DEL_FILE) $(OBJECTS) $(BRUTE_O) $(FAST_O)
 	-$(DEL_FILE) *~ core *.core
 
 
