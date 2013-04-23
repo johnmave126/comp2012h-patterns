@@ -9,12 +9,11 @@
  * The implementation of point
  */
 
-#include "Point.h"
 #include "Vector2D.h"
 #include <qcolor.h>
 #include <qpainter.h>
 
-bool Point::isCollinear(const Point &p1, const Point &p2) const {
+inline bool Point::isCollinear(const Point &p1, const Point &p2) const {
     //Collinear if sin<p1-this, p2-this> = 0
     return (( (p1 - (*this)) ^ (p2 - (*this)) ) == 0);
 }
@@ -53,7 +52,7 @@ Comparator::Comparator(const Point &p)
 :origin(p) {
 }
 
-bool Comparator::operator()(const Point &p1, const Point &p2) const {
+inline bool Comparator::operator()(const Point &p1, const Point &p2) const {
     Vector2D l1 = p1 - origin, l2 = p2 - origin;
     //Reverse if below y axis
     if(l1.getY() < 0) {
@@ -71,7 +70,7 @@ bool Comparator::operator()(const Point &p1, const Point &p2) const {
     return ( (l1 ^ l2) == 0)?(p1 < p2):( (l1 ^ l2) > 0);
 }
 
-bool Comparator::operator()(Point* const &p1, Point* const &p2) const {
+inline bool Comparator::operator()(Point* const &p1, Point* const &p2) const {
     //Reuse( operator() above
         return operator()(*p1, *p2);
 }

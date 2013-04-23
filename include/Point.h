@@ -77,11 +77,14 @@ class Comparator {
         Comparator(const Point&);
         
         /* reload operator() to act as a function object */
-        bool operator()(const Point&, const Point&) const;
-        bool operator()(Point* const &, Point* const &) const;
+        inline bool operator()(const Point&, const Point&) const;
+        inline bool operator()(Point* const &, Point* const &) const;
         
     private:
         Point origin;
 };
+
+//Include inline functions
+#include "src/Point.cpp"
 
 #endif

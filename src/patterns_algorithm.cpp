@@ -9,7 +9,6 @@
  * Algorithms of patterns
  */
 
-#include "patterns_algorithm.h"
 #include "Point.h"
 
 LineSeg::LineSeg()

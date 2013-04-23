@@ -110,7 +110,10 @@ class Vector2D {
 };
 
 /* operator*(binary arithmetic) for Vector2D */
-Vector2D operator*(const Vector2D&, int);
-Vector2D operator*(int, const Vector2D&);
+inline Vector2D operator*(const Vector2D&, int);
+inline Vector2D operator*(int, const Vector2D&);
+
+//Include those inline functions
+#include "src/Vector2D.cpp"
 
 #endif

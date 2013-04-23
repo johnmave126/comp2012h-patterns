@@ -76,4 +76,7 @@ Deque<LineSeg> Brute(Point* point_list, int size);
  */
 Deque<LineSeg> Fast(Point* point_list, int size);
 
+//Include those inline functions
+#include "src/patterns_algorithm.cpp"
+
 #endif
