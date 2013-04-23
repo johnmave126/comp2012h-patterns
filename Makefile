@@ -149,7 +149,7 @@ build_tmp/Fast.o: src/Fast.cpp include/patterns_algorithm.h include/Point.h \
 
 build_tmp/patterns_common.o: src/patterns_common.cpp \
  include/patterns_common.h include/Point.h include/Vector2D.h \
- include/deque.h include/Point.h
+ include/deque.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/patterns_common.o src/patterns_common.cpp
 
 build_tmp/patterns_algorithm.o: src/patterns_algorithm.cpp \
