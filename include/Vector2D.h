@@ -26,33 +26,33 @@ class Vector2D {
         Vector2D(int, int);
         
         /* operator= for Vector2D */
-        Vector2D& operator=(const Vector2D&);
+        inline Vector2D& operator=(const Vector2D&);
         
         /* operator+ for Vector2D */
-        Vector2D operator+(const Vector2D&) const;
+        inline Vector2D operator+(const Vector2D&) const;
         
         /* operator-(binary) for Vector2D */
-        Vector2D operator-(const Vector2D&) const;
+        inline Vector2D operator-(const Vector2D&) const;
         
         /* operator-(unary) for Vector2D */
-        Vector2D operator-() const;
+        inline Vector2D operator-() const;
         
         /* operator* as dot multiply for Vector2D */
-        int operator*(const Vector2D&) const;
+        inline int operator*(const Vector2D&) const;
         
         /* operator^ as cross multiply for Vector2D */
-        int operator^(const Vector2D&) const;
+        inline int operator^(const Vector2D&) const;
         
         /* operator==/!= for comparison */
-        bool operator==(const Vector2D&) const;
-        bool operator!=(const Vector2D&) const;
+        inline bool operator==(const Vector2D&) const;
+        inline bool operator!=(const Vector2D&) const;
         
         /* operator</>=/>/<= for comparison */
         /* compare using the coordinate */
-        bool operator<(const Vector2D&) const;
-        bool operator>=(const Vector2D&) const;
-        bool operator>(const Vector2D&) const;
-        bool operator<=(const Vector2D&) const;
+        inline bool operator<(const Vector2D&) const;
+        inline bool operator>=(const Vector2D&) const;
+        inline bool operator>(const Vector2D&) const;
+        inline bool operator<=(const Vector2D&) const;
         
         /*
          * dot
@@ -61,7 +61,7 @@ class Vector2D {
          *
          * behave same as operator*
          */
-        int dot(const Vector2D&) const;
+        inline int dot(const Vector2D&) const;
         
         /*
          * cross
@@ -70,21 +70,21 @@ class Vector2D {
          *
          * return the cross product of two vectors
          */
-        int cross(const Vector2D&) const;
+        inline int cross(const Vector2D&) const;
         
         /*
          * getX
          *
          * return the x-coordinate of the Vector2D
          */
-        int getX() const;
+        inline int getX() const;
         
         /*
          * getY
          *
          * return the y-coordinate of the Vector2D
          */
-        int getY() const;
+        inline int getY() const;
         
         /*
          * setX
@@ -93,7 +93,7 @@ class Vector2D {
          *
          * set the x-coordinate of the Vector2D
          */
-        void setX(int px);
+        inline void setX(int px);
         
         /*
          * setY
@@ -102,7 +102,7 @@ class Vector2D {
          *
          * set the y-coordinate of the Vector2D
          */
-        void setY(int py);
+        inline void setY(int py);
         
     protected:
         //Two component

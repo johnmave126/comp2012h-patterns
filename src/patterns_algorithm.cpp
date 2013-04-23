@@ -35,21 +35,21 @@ LineSeg::LineSeg(int s)
     memset(arr_point, 0, sizeof(Point*) * s);
 }
 
-Point*& LineSeg::operator[](int idx) {
+inline Point*& LineSeg::operator[](int idx) {
     if(idx < 0 || idx >= size) {
         throw runtime_error("Out of range");
     }
     return arr_point[idx];
 }
 
-Point* const& LineSeg::operator[](int idx) const {
+inline Point* const& LineSeg::operator[](int idx) const {
     if(idx < 0 || idx >= size) {
         throw runtime_error("Out of range");
     }
     return arr_point[idx];
 }
 
-int LineSeg::getSize() const {
+inline int LineSeg::getSize() const {
     return size;
 }
 
@@ -66,7 +66,7 @@ ostream& operator<<(ostream& os, const LineSeg& l) {
 }
 
 //Used to do a rough sort of Point*
-static bool PointCmp(Point* const &a, Point* const &b) {
+inline static bool PointCmp(Point* const &a, Point* const &b) {
     return (*a) < (*b);
 }
 

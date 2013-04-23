@@ -35,15 +35,15 @@ class LineSeg {
         LineSeg(int);
         
         /* operator[] for iterate */
-        Point*& operator[](int);
-        Point* const& operator[](int) const;
+        inline Point*& operator[](int);
+        inline Point* const& operator[](int) const;
 
         /*
          * getSize
          *
          * return the number of point on this line segment
          */
-        int getSize() const;
+        inline int getSize() const;
         
     private:
         Point** arr_point;

@@ -31,7 +31,7 @@ class Point: public Vector2D {
          *
          * return whether the three points are collinear
          */
-        bool isCollinear(const Point &p1, const Point &p2) const;
+        inline bool isCollinear(const Point &p1, const Point &p2) const;
         
         /*
          * draw
