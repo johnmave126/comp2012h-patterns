@@ -115,7 +115,7 @@ uiclean:
 yaccclean:
 lexclean:
 clean: mocclean
-	-$(DEL_FILE) $(OBJECTS)
+	-$(DEL_FILE) $(OBJECTS) $(BRUTE_O) $(BRUTE_O)
 	-$(DEL_FILE) *~ core *.core
 
 
@@ -133,12 +133,12 @@ FORCE:
 path:
 	test -d build_tmp/ || mkdir -p build_tmp/
 
-build_tmp/Brute.o: src/Brute.cpp include/pattern_algorithm.h include/Point.h \
+build_tmp/Brute.o: src/Brute.cpp include/patterns_algorithm.h include/Point.h \
  include/Vector2D.h include/deque.h include/Point.h include/Vector2D.h \
  include/deque.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/Brute.o src/Brute.cpp
 
-build_tmp/Fast.o: src/Fast.cpp include/pattern_algorithm.h include/Point.h \
+build_tmp/Fast.o: src/Fast.cpp include/patterns_algorithm.h include/Point.h \
  include/Vector2D.h include/deque.h include/Point.h include/Vector2D.h \
  include/deque.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/Fast.o src/Fast.cpp
