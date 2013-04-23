@@ -113,7 +113,7 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
         origin = sorting_list[0];
 
         //Sort the Points relative to sorting_list[0]
-        sort(sorting_list + 1, sorting_list + size, Comparator(*origin));
+        sort(sorting_list + 1, sorting_list + size, Comparator(*origin).operator());
 
         //Iterate over the sorted list
         j = 1;
