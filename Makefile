@@ -52,8 +52,8 @@ HEADERS = include/deque.h \
 		include/Vector2D.h 
 SOURCES = src/Brute.cpp \
 		src/Fast.cpp \
-		src/patterns_common.cpp \
-OBJECTS = build_tmp/patterns_common.o \
+		src/patterns_common.cpp 
+OBJECTS = build_tmp/patterns_common.o 
 BRUTE_O = build_tmp/Brute.o
 FAST_O = build_tmp/Fast.o
 FORMS = 
