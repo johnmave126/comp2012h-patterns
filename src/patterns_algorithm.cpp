@@ -11,6 +11,7 @@
 
 #include "patterns_algorithm.h"
 #include "Point.h"
+#include <cstring>
 
 LineSeg::LineSeg()
 :arr_point(NULL), size(0) {
@@ -92,16 +93,18 @@ Deque<LineSeg> Brute(Point* point_list, int size) {
 
 Deque<LineSeg> Fast(Point* point_list, int size) {
     int i, j, k, onLine;
+    Point **original_list = new Point*[size];
     Point **sorting_list = new Point*[size];
     Deque<LineSeg> result;
     LineSeg *tmp_l;
     Point *tmp_swap, *origin;
+    for(i = 0; i < size; i++) {
+        original_list[i] = &point_list[i];
+    }
 
     for(i = 0; i < size; i++) {
         //Copy the original into the list
-        for(j = 0; j < size; j++) {
-            sorting_list[j] = &point_list[j];
-        }
+        memcpy(sorting_list, original_list, size * sizeof(Point*));
         //Swap the current origin to sorting_list[0]
         tmp_swap = sorting_list[0];
         sorting_list[0] = sorting_list[i];
