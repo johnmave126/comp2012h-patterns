@@ -15,18 +15,18 @@
 #include <qpainter.h>
 
 Point::Point()
-:x(0), y(0) {
+:Vector2D() {
 }
 
 Point::~Point() {
 }
 
 Point::Point(const Point &v)
-:x(v.x), y(v.y) {
+:Vector2D(v) {
 }
 
 Point::Point(int px, int py)
-:x(px), y(py) {
+:Vector2D(px, py) {
 }
 
 void Point::draw(QPainter *painter, double scaleX, double scaleY, int leftX, int bottomY) const {
