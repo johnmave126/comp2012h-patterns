@@ -106,12 +106,14 @@ Deque<LineSeg> Brute(Point* point_list, int size) {
 }
 
 Deque<LineSeg> Fast(Point* point_list, int size) {
-    int i, j, k, onLine;
+    int i, j, k, onLine, offset = 0, nSize = size;
+    bool exFlag;
     Point **original_list = new Point*[size];
     Point **sorting_list = new Point*[size];
     Deque<LineSeg> result;
     LineSeg *tmp_l;
     Point *tmp_swap, *origin;
+    Point abs_origin(0, 0);
     for(i = 0; i < size; i++) {
         original_list[i] = &point_list[i];
     }
@@ -119,27 +121,34 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
     sort(original_list, original_list + size, PointCmp);
 
     for(i = 0; i < size; i++) {
+        exFlag = false;
+
+        //Swap the current origin to original_list[offset]
+        tmp_swap = original_list[offset];
+        original_list[offset] = original_list[i];
+        original_list[i] = tmp_swap;
         //Copy the original into the list
-        memcpy(sorting_list, original_list, size * sizeof(Point*));
-        //Swap the current origin to sorting_list[0]
-        tmp_swap = sorting_list[0];
-        sorting_list[0] = sorting_list[i];
-        sorting_list[i] = tmp_swap;
+        memcpy(sorting_list, original_list + offset, nSize * sizeof(Point*));
 
         origin = sorting_list[0];
 
         //Shift all the points
-        for(j = 1; j < size; j++) {
+        for(j = 1; j < nSize; j++) {
             *sorting_list[j] -= *origin;
         }
 
         //Sort the Points relative to sorting_list[0]
-        sort(sorting_list + 1, sorting_list + size, Comparator);
+        sort(sorting_list + 1, sorting_list + nSize, Comparator);
 
         //Iterate over the sorted list
         j = 1;
-        while(j < size) {
+        while(j < nSize) {
             onLine = 1;
+
+            //Skip some indexes
+            while(abs_origin >= (*sorting_list[j + 1]) && j + 1 < size) {
+                j++;
+            }
 
             //Go over the line
             while(j + onLine < size &&
@@ -149,7 +158,8 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
             //For order correctness and uniqueness
             //The origin should be the left-bottom most point on the line
             //Also there should be no less than 4 points on the line
-            if((*origin) < (*sorting_list[j]) && onLine >= 3) {
+            if(onLine >= 3 && 
+             (((*sorting_list[j]) ^ (*sorting_list[j - 1])) != 0 || j == 1)) {
                 //Insert the line
                 tmp_l = new LineSeg(onLine + 1);
                 (*tmp_l)[0] = origin;
@@ -158,14 +168,21 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
                 }
                 result.addLast(*tmp_l);
                 delete tmp_l;
+                exFlag = true;
             }
 
             j += onLine;
         }
 
         //Restore all the points
-        for(j = 1; j < size; j++) {
+        for(j = 1; j < nSize; j++) {
             *sorting_list[j] += *origin;
+        }
+
+        //Can be eliminated
+        if(!exFlag) {
+            offset++;
+            nSize--;
         }
     }
 
