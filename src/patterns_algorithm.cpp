@@ -146,7 +146,7 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
             onLine = 1;
 
             //Skip some indexes
-            while(abs_origin >= (*sorting_list[j + 1]) && j + 1 < size) {
+            while(abs_origin >= (*sorting_list[j]) && j < size) {
                 j++;
             }
 
