@@ -12,13 +12,13 @@ CC       = gcc
 CXX      = g++
 LEX      = flex
 YACC     = yacc
-CFLAGS   = -pipe -Wextra -Wall -W -O3 -g -pg -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic  -DQT_NO_DEBUG -DQT_SHARED -DQT_THREAD_SUPPORT
-CXXFLAGS = -pipe -Wextra -Wall -W -O3 -g -pg -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic  -DQT_NO_DEBUG -DQT_SHARED -DQT_THREAD_SUPPORT
+CFLAGS   = -pipe -Wextra -Wall -W -O3 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic  -DQT_NO_DEBUG -DQT_SHARED -DQT_THREAD_SUPPORT
+CXXFLAGS = -pipe -Wextra -Wall -W -O3 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic  -DQT_NO_DEBUG -DQT_SHARED -DQT_THREAD_SUPPORT
 LEXFLAGS = 
 YACCFLAGS= -d
 INCPATH  = -I/usr/lib64/qt-3.3/mkspecs/linux-g++-64 -I. -Iinclude -I$(QTDIR)/include -Ibuild_tmp/
 LINK     = g++
-LFLAGS   = -pg
+LFLAGS   = 
 LIBS     = $(SUBLIBS) -L$(QTDIR)/lib -lqt-mt -lXext -lX11 -lm
 AR       = ar cqs
 RANLIB   = 
