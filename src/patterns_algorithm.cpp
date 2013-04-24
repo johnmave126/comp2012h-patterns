@@ -60,7 +60,7 @@ inline bool Comparator(Point* const &p1, Point* const &p2) {
     }
     res = (*p1) ^ (*p2);
     if( (f1 && !f2) || (!f1 && f2) ) {
-        res = -res
+        res = -res;
     }
     return (res == 0) ? ((*p1) < (*p2)) : (res > 0);
 }
