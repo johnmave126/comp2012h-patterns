@@ -53,6 +53,10 @@ class Vector2D {
         inline bool operator>=(const Vector2D&) const;
         inline bool operator>(const Vector2D&) const;
         inline bool operator<=(const Vector2D&) const;
+
+        /* operator +=/-= short cut */
+        inline Vector2D& operator+=(const Vector2D&);
+        inline Vector2D& operator-=(const Vector2D&);
         
         /*
          * dot
@@ -165,6 +169,18 @@ inline bool Vector2D::operator>(const Vector2D &v) const {
 inline bool Vector2D::operator<=(const Vector2D &v) const {
     //Reuse oeprator>
     return !((*this) > v);
+}
+
+inline Vector2D& Vector2D::operator+=(const Vector2D &v) const {
+    x += v.x;
+    y += v.y;
+    return (*this);
+}
+
+inline Vector2D& Vector2D::operator-=(const Vector2D &v) const {
+    x -= v.x;
+    y -= v.y;
+    return (*this);
 }
 
 inline int Vector2D::dot(const Vector2D &v) const {

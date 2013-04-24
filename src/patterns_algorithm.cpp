@@ -48,6 +48,20 @@ ostream& operator<<(ostream& os, const LineSeg& l) {
     return os;
 }
 
+inline bool Comparator(Point* const &p1, Point* const &p2) {
+    char f1 = 1, f2 = 1;
+    int res;
+    //Reverse if below y axis
+    if( (p1->getY() < 0) || (p1->getY() == 0 && p1->getX() < 0)) {
+        f1 = -1;
+    }
+    if( (p2->getY() < 0) || (p2->getY() == 0 && p2->getX() < 0)) {
+        f2 = -1;
+    }
+    res = ((*p1) ^ (*p2)) * f1 * f2;
+    return (res == 0) ? ((*p1) < (*p2)) : (res > 0);
+}
+
 //Used to do a rough sort of Point*
 static inline bool PointCmp(Point* const &a, Point* const &b) {
     return (*a) < (*b);
@@ -112,8 +126,15 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
 
         origin = sorting_list[0];
 
+        //Shift all the points
+        for(j = 0; j < size; j++) {
+            if(j != i) {
+                point_list[j] -= point_list[i];
+            }
+        }
+
         //Sort the Points relative to sorting_list[0]
-        sort(sorting_list + 1, sorting_list + size, Comparator(*origin).operator());
+        sort(sorting_list + 1, sorting_list + size, Comparator);
 
         //Iterate over the sorted list
         j = 1;
@@ -142,6 +163,13 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
             }
 
             j += onLine;
+        }
+
+        //Restore all the points
+        for(j = 0; j < size; j++) {
+            if(j != i) {
+                point_list[j] += point_list[i];
+            }
         }
     }
 

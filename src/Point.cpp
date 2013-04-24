@@ -37,14 +37,3 @@ ostream& operator<<(ostream& os, const Point& p) {
     os << " (" << p.getX() << ", " << p.getY() << ") ";
     return os;
 }
-
-Comparator::Comparator()
-:origin(Point()) {
-}
-
-Comparator::~Comparator() {
-}
-
-Comparator::Comparator(const Point &p)
-:origin(p) {
-}

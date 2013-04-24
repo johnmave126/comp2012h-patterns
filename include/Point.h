@@ -66,51 +66,10 @@ class Point: public Vector2D {
 istream& operator>>(istream&, Point&);
 ostream& operator<<(ostream&, const Point&);
 
-//Comparator to compare two Point
-class Comparator {
-    public:
-        /* default constructor/destructor */
-        Comparator();
-        ~Comparator();
-        
-        /* conversion constructor */
-        Comparator(const Point&);
-        
-        /* reload operator() to act as a function object */
-        inline bool operator()(const Point&, const Point&) const;
-        inline bool operator()(Point* const &, Point* const &) const;
-        
-    private:
-        Point origin;
-};
-
 //inline functions
 inline bool Point::isCollinear(const Point &p1, const Point &p2) const {
     //Collinear if sin<p1-this, p2-this> = 0
     return (( (p1 - (*this)) ^ (p2 - (*this)) ) == 0);
-}
-
-inline bool Comparator::operator()(const Point &p1, const Point &p2) const {
-    Vector2D l1 = p1 - origin, l2 = p2 - origin;
-    //Reverse if below y axis
-    if(l1.getY() < 0) {
-        l1 = -l1;
-    }
-    else if(l1.getY() == 0 && l1.getX() < 0) {
-        l1 = -l1;
-    }
-    if(l2.getY() < 0) {
-        l2 = -l2;
-    }
-    else if(l2.getY() == 0 && l2.getX() < 0) {
-        l2 = -l2;
-    }
-    return ( (l1 ^ l2) == 0)?(p1 < p2):( (l1 ^ l2) > 0);
-}
-
-inline bool Comparator::operator()(Point* const &p1, Point* const &p2) const {
-    //Reuse( operator() above
-        return operator()(*p1, *p2);
 }
 
 #endif
