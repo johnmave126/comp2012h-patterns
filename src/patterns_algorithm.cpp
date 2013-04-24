@@ -142,8 +142,8 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
             onLine = 1;
 
             //Go over the line
-            while(j + onLine < size && origin->isCollinear(*sorting_list[j],
-             *sorting_list[j + onLine])) {
+            while(j + onLine < size && ((*sorting_list[j]) ^
+             (*sorting_list[j + onLine]) == 0) ) {
                 onLine++;
             }
             //For order correctness and uniqueness
