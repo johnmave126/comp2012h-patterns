@@ -129,10 +129,8 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
         origin = sorting_list[0];
 
         //Shift all the points
-        for(j = 0; j < size; j++) {
-            if(j != i) {
-                *sorting_list[j] -= *origin;
-            }
+        for(j = 1; j < size; j++) {
+            *sorting_list[j] -= *origin;
         }
 
         //Sort the Points relative to sorting_list[0]
@@ -165,10 +163,8 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
         }
 
         //Restore all the points
-        for(j = 0; j < size; j++) {
-            if(j != i) {
-                *original_list[j] += *origin;
-            }
+        for(j = 1; j < size; j++) {
+            *sorting_list[j] += *origin;
         }
     }
 
