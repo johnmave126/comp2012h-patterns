@@ -171,13 +171,13 @@ inline bool Vector2D::operator<=(const Vector2D &v) const {
     return !((*this) > v);
 }
 
-inline Vector2D& Vector2D::operator+=(const Vector2D &v) const {
+inline Vector2D& Vector2D::operator+=(const Vector2D &v) {
     x += v.x;
     y += v.y;
     return (*this);
 }
 
-inline Vector2D& Vector2D::operator-=(const Vector2D &v) const {
+inline Vector2D& Vector2D::operator-=(const Vector2D &v) {
     x -= v.x;
     y -= v.y;
     return (*this);
