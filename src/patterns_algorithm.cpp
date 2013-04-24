@@ -10,7 +10,6 @@
  */
 
 #include "patterns_algorithm.h"
-#include "Vector2D.h"
 #include "Point.h"
 #include <cstring>
 

@@ -14,6 +14,20 @@
 #include <qcolor.h>
 #include <qpainter.h>
 
+Point::Point()
+:x(0), y(0) {
+}
+
+Point::~Point() {
+}
+
+Point::Point(const Point &v)
+:x(v.x), y(v.y) {
+}
+
+Point::Point(int px, int py)
+:x(px), y(py) {
+}
 
 void Point::draw(QPainter *painter, double scaleX, double scaleY, int leftX, int bottomY) const {
     painter->setBrush(QColor(29, 37, 183));

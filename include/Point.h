@@ -23,6 +23,16 @@ using std::ostream;
 //Point can be regarded as one kind of Vector
 class Point: public Vector2D {
     public:
+        /* default constructor/destructor */
+        Point();
+        ~Point();
+        
+        /* copy constructor */
+        Point(const Point &);
+        
+        /* conversion constructor */
+        Point(int, int);
+
         /*
          * isCollinear
          *
