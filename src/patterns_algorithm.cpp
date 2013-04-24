@@ -49,16 +49,19 @@ ostream& operator<<(ostream& os, const LineSeg& l) {
 }
 
 inline bool Comparator(Point* const &p1, Point* const &p2) {
-    char f1 = 1, f2 = 1;
+    bool f1 = true, f2 = true;
     int res;
     //Reverse if below y axis
     if( (p1->getY() < 0) || (p1->getY() == 0 && p1->getX() < 0)) {
-        f1 = -1;
+        f1 = false;
     }
     if( (p2->getY() < 0) || (p2->getY() == 0 && p2->getX() < 0)) {
-        f2 = -1;
+        f2 = false;
     }
-    res = ((*p1) ^ (*p2)) * f1 * f2;
+    res = (*p1) ^ (*p2);
+    if( (f1 && !f2) || (!f1 && f2) ) {
+        res = -res
+    }
     return (res == 0) ? ((*p1) < (*p2)) : (res > 0);
 }
 
@@ -146,7 +149,7 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
             onLine = 1;
 
             //Skip some indexes
-            while(abs_origin >= (*sorting_list[j]) && j < nSize) {
+            while(j < nSize && abs_origin >= (*sorting_list[j])) {
                 j++;
             }
 
