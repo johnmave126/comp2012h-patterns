@@ -171,7 +171,7 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
         painter.drawLine(margin + static_cast<int>(1.0 * real_w / 5 * i),
             margin + h_offset + real_h, margin + static_cast<int>(1.0 * real_w / 5 * i),
             margin + h_offset + real_h - 4);
-        painter.drawText(margin + static_cast<int>(1.0 * real_w / 5 * i),
+        painter.drawText(static_cast<int>(1.0 * real_w / 5 * i),
                 margin + h_offset + real_h, 2 * margin, margin, Qt::AlignCenter,
                 QString("%1").arg(leftX + 1.0 * (rightX - leftX) / 5 * i, 0, 'f', 1));
         painter.drawLine(margin, margin + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
