@@ -16,7 +16,7 @@
 #include <qcolor.h>
 #include <qpainter.h>
 #include <iostream>
-#include <qtextstream>
+#include <qtextstream.h>
 
 using std::istream;
 using std::ostream;
