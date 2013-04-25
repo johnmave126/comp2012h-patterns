@@ -145,7 +145,7 @@ void PatternsMainWindow::ShowAbout() {
 
 void PatternsMainWindow::paintEvent(QPaintEvent*) {
     const int margin = 20;
-    int h_offset = menuBar()->height(), w_offset = margin,
+    int h_offset = menuBar()->height(),
         real_h = height() - menuBar()->height() - 2 * margin,
         real_w = width() - 2 * margin;
     int leftX = static_cast<int>(floor(min_x * 0.9)),
@@ -154,6 +154,8 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
         topY = static_cast<int>(ceil(max_y * 1.1));
     double scaleX = 1.0 * real_w / (rightX - leftX),
         scaleY = 1.0 * real_h / (topY - bottomY);
+    int real_left = static_cast<int>(margin - leftX * scaleX),
+        real_top = static_cast<int>(h_offset + margin + topY * scaleY);
     QPainter painter;
     int i;
 
@@ -175,6 +177,11 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
         painter.drawText(0, margin / 2 + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
                 2 * margin, margin, Qt::AlignCenter,
                 QString("%1").arg(bottomY + static_cast<int>(1.0 * (topY - bottomY) / 5 * i)));
+    }
+    if(p_arr) {
+        for(i = 0; i < size; i++) {
+            p_arr[i].draw(&painter, scaleY, scaleY, real_left, real_top);
+        }
     }
     painter.end();
 }
