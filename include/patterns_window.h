@@ -43,21 +43,21 @@ class PatternsMainWindow: public QMainWindow {
          *
          * slot that handle action when try to run Brute Force algorithm
          */
-        void onLoadBrute();
+        void OnLoadBrute();
 
         /*
          * onLoadFast
          *
          * slot that handle action when try to run Fast algorithm
          */
-        void onLoadFast();
+        void OnLoadFast();
 
         /*
          * onExit
          *
          * slot that handle action when try to Exit
          */
-        void onExit();
+        void OnExit();
         //File Menu End
 
         //Help Menu Begin

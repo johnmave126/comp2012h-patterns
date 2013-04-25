@@ -52,15 +52,15 @@ QMetaObject* PatternsMainWindow::staticMetaObject()
 	return metaObj;
     QMetaObject* parentObject = QMainWindow::staticMetaObject();
     static const QUMethod slot_0 = {"OnLoadFile", 0, 0 };
-    static const QUMethod slot_1 = {"onLoadBrute", 0, 0 };
-    static const QUMethod slot_2 = {"onLoadFast", 0, 0 };
-    static const QUMethod slot_3 = {"onExit", 0, 0 };
+    static const QUMethod slot_1 = {"OnLoadBrute", 0, 0 };
+    static const QUMethod slot_2 = {"OnLoadFast", 0, 0 };
+    static const QUMethod slot_3 = {"OnExit", 0, 0 };
     static const QUMethod slot_4 = {"ShowAbout", 0, 0 };
     static const QMetaData slot_tbl[] = {
 	{ "OnLoadFile()", &slot_0, QMetaData::Public },
-	{ "onLoadBrute()", &slot_1, QMetaData::Public },
-	{ "onLoadFast()", &slot_2, QMetaData::Public },
-	{ "onExit()", &slot_3, QMetaData::Public },
+	{ "OnLoadBrute()", &slot_1, QMetaData::Public },
+	{ "OnLoadFast()", &slot_2, QMetaData::Public },
+	{ "OnExit()", &slot_3, QMetaData::Public },
 	{ "ShowAbout()", &slot_4, QMetaData::Public }
     };
     metaObj = QMetaObject::new_metaobject(
@@ -87,9 +87,9 @@ bool PatternsMainWindow::qt_invoke( int _id, QUObject* _o )
 {
     switch ( _id - staticMetaObject()->slotOffset() ) {
     case 0: OnLoadFile(); break;
-    case 1: onLoadBrute(); break;
-    case 2: onLoadFast(); break;
-    case 3: onExit(); break;
+    case 1: OnLoadBrute(); break;
+    case 2: OnLoadFast(); break;
+    case 3: OnExit(); break;
     case 4: ShowAbout(); break;
     default:
 	return QMainWindow::qt_invoke( _id, _o );

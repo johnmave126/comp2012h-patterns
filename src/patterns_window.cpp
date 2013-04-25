@@ -80,7 +80,7 @@ void PaintMainWindow::OnLoadFile() {
     }
 }
 
-void PaintMainWindow::onLoadBrute() {
+void PaintMainWindow::OnLoadBrute() {
     clock_t last_tick, cur_tick;
     if(!p_arr) {
         QMessageBox::critical( this, "No File loaded",
@@ -103,7 +103,7 @@ void PaintMainWindow::onLoadBrute() {
     }
 }
 
-void PaintMainWindow::onLoadFast() {
+void PaintMainWindow::OnLoadFast() {
     clock_t last_tick, cur_tick;
     if(!p_arr) {
         QMessageBox::critical( this, "No File loaded",
@@ -126,7 +126,7 @@ void PaintMainWindow::onLoadFast() {
     }
 }
 
-void PatternsMainWindow::onExit() {
+void PatternsMainWindow::OnExit() {
     qApp->quit();
 }
 
