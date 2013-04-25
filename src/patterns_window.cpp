@@ -160,6 +160,7 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
         real_top = static_cast<int>(h_offset + margin + topY * scaleY);
     QPainter painter;
     int i;
+    Deque<LineSeg>::Iterator itr(result);
 
     painter.begin(this);
     //Draw Axis
@@ -171,20 +172,30 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
         painter.drawLine(margin + static_cast<int>(1.0 * real_w / 5 * i),
             margin + h_offset + real_h, margin + static_cast<int>(1.0 * real_w / 5 * i),
             margin + h_offset + real_h - 4);
-        painter.drawText(static_cast<int>(1.0 * real_w / 5 * i),
-                margin + h_offset + real_h, 2 * margin, margin, Qt::AlignCenter,
-                QString("%1").arg(leftX + 1.0 * (rightX - leftX) / 5 * i, 0, 'f', 1));
-        painter.drawLine(margin, margin + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
+       painter.drawLine(margin, margin + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
             margin + 4, margin + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i));
-        painter.drawText(0, margin / 2 + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
-                2 * margin, margin, Qt::AlignLeft,
-                QString("%1").arg(bottomY + 1.0 * (topY - bottomY) / 5 * i, 0, 'f', 1));
     }
+    //Draw points
     if(p_arr) {
         for(i = 0; i < size; i++) {
             p_arr[i].draw(&painter, scaleX, scaleY, real_left, real_top);
         }
     }
+
+    //Draw Lines
+    for(i = 0; i < result.size(); i++, itr++) {
+        (*itr)[0].drawTo((*itr)[itr->getSize() - 1], &painter, scaleX, scaleY, real_left, real_top);
+    }
+
+    //Draw ruler text
+    for(i = 0; i <= 5; i++) {
+        painter.drawText(static_cast<int>(1.0 * real_w / 5 * i),
+                margin + h_offset + real_h, 2 * margin, margin, Qt::AlignCenter,
+                QString("%1").arg(leftX + 1.0 * (rightX - leftX) / 5 * i, 0, 'f', 1));
+        painter.drawText(0, margin / 2 + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
+                2 * margin, margin, Qt::AlignLeft,
+                QString("%1").arg(bottomY + 1.0 * (topY - bottomY) / 5 * i, 0, 'f', 1));
+    } 
     painter.end();
 }
 
