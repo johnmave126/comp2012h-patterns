@@ -205,5 +205,5 @@ void PatternsMainWindow::processPoints() {
             max_y = p_arr[i].getY();
         }
     }
-    cout << size << min_x << max_x << min_y << max_y;
+    cout << size << ' ' << min_x << ' ' << max_x << ' ' << min_y << ' ' << max_y;
 }
