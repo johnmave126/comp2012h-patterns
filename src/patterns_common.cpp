@@ -14,12 +14,29 @@
 #include "deque.h"
 #include "patterns_algorithm.h"
 #include <iostream>
+#include <>
 
 using std::istream;
 using std::ostream;
 using std::endl;
 
 Point* readPoints(istream& is, int *size) {
+    Point *p_arr;
+    int i, s;
+    is >> s;
+    if(size) {
+        *size = s;
+    }
+
+    p_arr = new Point[s];
+    for(i = 0; i < s; i++) {
+        is >> p_arr[i];
+    }
+
+    return p_arr;
+}
+
+Point* readPoints(QTextStream& is, int *size) {
     Point *p_arr;
     int i, s;
     is >> s;

@@ -49,26 +49,29 @@ HEADERS = include/deque.h \
 		include/patterns_algorithm.h \
 		include/patterns_common.h \
 		include/Point.h \
-		include/Vector2D.h 
+		include/Vector2D.h \
+		include/patterns_window.h
 SOURCES = src/Brute.cpp \
 		src/Fast.cpp \
 		src/patterns_common.cpp \
 		src/patterns_algorithm.cpp \
 		src/Vector2D.cpp \
-		src/Point.cpp
+		src/Point.cpp \
+		src/patterns_window.cpp
 OBJECTS = build_tmp/patterns_common.o \
 		build_tmp/patterns_algorithm.o \
 		build_tmp/Vector2D.o \
 		build_tmp/Point.o
 BRUTE_O = build_tmp/Brute.o
 FAST_O = build_tmp/Fast.o
+PLOTTER_O = build_tmp/patterns_window.o
 FORMS = 
 UICDECLS = 
 UICIMPLS = 
-SRCMOC   = 
-OBJMOC = 
+SRCMOC   = src/moc_patterns_window.cpp
+OBJMOC = build_tmp/moc_patterns_window.o
 DESTDIR  = build_bin
-TARGET   = $(DESTDIR)/Brute $(DESTDIR)/Fast
+TARGET   = $(DESTDIR)/Brute $(DESTDIR)/Fast $(DESTDIR)/PointPlotter
 
 first: all
 ####### Implicit rules
@@ -102,6 +105,11 @@ $(DESTDIR)/Fast: $(UICDECLS) $(OBJECTS) $(OBJMOC) $(FAST_O)
 	test -d build_bin/ || mkdir -p build_bin/
 	$(LINK) $(LFLAGS) -o $(DESTDIR)/Fast $(OBJECTS) $(FAST_O) $(OBJMOC) $(OBJCOMP) $(LIBS)
 
+$(DESTDIR)/PointPlotter: $(UICDECLS) $(OBJECTS) $(OBJMOC) $(PLOTTER_O)
+	test -d build_bin/ || mkdir -p build_bin/
+	$(LINK) $(LFLAGS) -o $(DESTDIR)/PointPlotter $(OBJECTS) $(PLOTTER_O) $(OBJMOC) $(OBJCOMP) $(LIBS)
+
+
 .PHONY: resource
 resource:
 	(test -d resource/ && cp -r resource/* build_bin/) || true 
@@ -114,7 +122,6 @@ $(MOC):
 
 mocclean:
 	-$(DEL_FILE) $(OBJMOC)
-	-$(DEL_FILE) $(SRCMOC)
 
 uiclean:
 
@@ -163,3 +170,12 @@ build_tmp/Point.o: src/Point.cpp include/Point.h include/Vector2D.h \
 
 build_tmp/Vector2D.o: src/Vector2D.cpp include/Vector2D.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/Vector2D.o src/Vector2D.cpp
+
+build_tmp/patterns_window.o: src/patterns_window.cpp include/patterns_window.h \
+ include/patterns_algorithm.h include/Point.h include/Vector2D.h \
+ include/deque.h include/patterns_common.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/patterns_window.o src/patterns_window.cpp
+
+build_tmp/moc_patterns_window.o: src/moc_patterns_window.cpp \
+ src/patterns_window.cpp include/patterns_window.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/moc_patterns_window.o src/moc_patterns_window.cpp

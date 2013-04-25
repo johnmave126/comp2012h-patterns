@@ -32,6 +32,17 @@ using std::ostream;
 Point* readPoints(istream& is, int *size);
 
 /*
+ * readPoints
+ *
+ * is: the input stream
+ * size: the pointer to store final size
+ *
+ * read from a stream, generate a Point array accordingly
+ * note that the array should be deleted to prevent memory leak
+ */
+Point* readPoints(QTextStream& is, int *size);
+
+/*
  * printLines
  *
  * os: the output stream
