@@ -68,7 +68,7 @@ inline bool Comparator(Point* const &p1, Point* const &p2) {
     if( (p2->getY() < 0) || (p2->getY() == 0 && p2->getX() < 0)) {
         f2 = false;
     }
-    if( (!f1 && f2) || (f1 && !f2) ) {
+    if( (f1 && !f2) || (!f1 && f2) ) {
         res = -res;
     }
     return (res == 0) ? ((*p1) < (*p2)) : (res > 0);
