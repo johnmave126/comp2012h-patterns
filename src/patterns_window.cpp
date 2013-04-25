@@ -32,8 +32,8 @@ PatternsMainWindow::PatternsMainWindow(QWidget* parent, const char* name)
 
     //Create Load and Calculate Section
     file->insertItem("&Load input file", this, SLOT(OnLoadFile()), CTRL+Key_N);
-    file->insertItem("Load &Brute Algorithm", this, SLOT(onLoadBrute()), CTRL+Key_B);
-    file->insertItem("Load &Fast Algorithm", this, SLOT(onLoadFast()), CTRL+Key_F);
+    file->insertItem("Load &Brute Algorithm", this, SLOT(OnLoadBrute()), CTRL+Key_B);
+    file->insertItem("Load &Fast Algorithm", this, SLOT(OnLoadFast()), CTRL+Key_F);
     file->insertSeparator();
     
     //Create Exit Section
