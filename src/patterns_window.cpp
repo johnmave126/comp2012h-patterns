@@ -220,4 +220,5 @@ void PatternsMainWindow::processPoints() {
     }
     max_x = (max_x - min_x > 6) ? (max_x) : (min_x + 6);
     max_y = (max_y - min_y > 6) ? (max_y) : (min_y + 6);
+    cout << max_x << ' ' << max_y << std::endl;
 }
