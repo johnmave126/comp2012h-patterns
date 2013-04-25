@@ -145,7 +145,7 @@ void PatternsMainWindow::ShowAbout() {
 
 void PatternsMainWindow::paintEvent(QPaintEvent*) {
     int h_offset = menuBar()->height(), w_offset = 10,
-        real_h = height() - menuBar()->height - 20,
+        real_h = height() - menuBar()->height() - 20,
         real_w = width() - 20;
     int leftX = floor(min_x * 0.9), rightX = ceil(max_x * 1.1), 
         bottomY = floor(min_y * 0.9), topY = ceil(max_y * 1.1);
