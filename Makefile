@@ -64,7 +64,7 @@ OBJECTS = build_tmp/patterns_common.o \
 		build_tmp/Point.o
 BRUTE_O = build_tmp/Brute.o
 FAST_O = build_tmp/Fast.o
-PLOTTER_O = build_tmp/patterns_window.o
+PLOTTER_O = build_tmp/patterns_window.o build_tmp/pointplotter.o
 FORMS = 
 UICDECLS = 
 UICIMPLS = 
@@ -179,3 +179,7 @@ build_tmp/patterns_window.o: src/patterns_window.cpp include/patterns_window.h \
 build_tmp/moc_patterns_window.o: src/moc_patterns_window.cpp \
  src/patterns_window.cpp include/patterns_window.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/moc_patterns_window.o src/moc_patterns_window.cpp
+
+build_tmp/pointplotter.o: src/pointplotter.cpp src/patterns_window.cpp \
+ include/patterns_window.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_tmp/pointplotter.o src/pointplotter.cpp
