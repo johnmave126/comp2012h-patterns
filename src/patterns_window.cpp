@@ -18,6 +18,9 @@
 #include <qmessagebox.h>
 #include <qmenubar.h>
 #include <qpopupmenu.h>
+#include <qfile.h>
+#include <qfiledialog.h>
+#include <qstring.h>
 
 using std::cout;
 
@@ -98,7 +101,7 @@ void PatternsMainWindow::OnLoadBrute() {
         printLines(cout, result);
         QMessageBox::information( this, "Running time",
             QString("%1 ms").arg(
-                1000.0 * (cur_tick - last_tick) / CLOCKS_PER_SEC, 'f', 2) );
+                1000.0 * (cur_tick - last_tick) / CLOCKS_PER_SEC, 0, 'f', 2) );
 
         //Call for repaint
         repaint();
@@ -121,7 +124,7 @@ void PatternsMainWindow::OnLoadFast() {
         printLines(cout, result);
         QMessageBox::information( this, "Running time",
             QString("%1 ms").arg(
-                1000.0 * (cur_tick - last_tick) / CLOCKS_PER_SEC, 'f', 2) );
+                1000.0 * (cur_tick - last_tick) / CLOCKS_PER_SEC, 0, 'f', 2) );
 
         //Call for repaint
         repaint();
