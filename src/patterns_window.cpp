@@ -58,7 +58,7 @@ PatternsMainWindow::~PatternsMainWindow() {
     }
 }
 
-void PaintMainWindow::OnLoadFile() {
+void PatternsMainWindow::OnLoadFile() {
     //Prompt a window to get filename
     QString filename = QFileDialog::getOpenFileName(QString::null,
         "All Files (*.*)", this, 0, "Load input file...");
@@ -82,7 +82,7 @@ void PaintMainWindow::OnLoadFile() {
     }
 }
 
-void PaintMainWindow::OnLoadBrute() {
+void PatternsMainWindow::OnLoadBrute() {
     clock_t last_tick, cur_tick;
     if(!p_arr) {
         QMessageBox::critical( this, "No File loaded",
@@ -105,7 +105,7 @@ void PaintMainWindow::OnLoadBrute() {
     }
 }
 
-void PaintMainWindow::OnLoadFast() {
+void PatternsMainWindow::OnLoadFast() {
     clock_t last_tick, cur_tick;
     if(!p_arr) {
         QMessageBox::critical( this, "No File loaded",
