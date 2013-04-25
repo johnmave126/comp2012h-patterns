@@ -99,7 +99,7 @@ int main(int argc, char **argv) {
     }
     p_arr = readPoints(is, &size);
     Brute solver(p_arr, size);
-    res = solver.Run(p_arr, size);
+    res = solver.Run();
     printLines(cout, res);
 
     delete [] p_arr;

@@ -100,7 +100,7 @@ void PatternsMainWindow::OnLoadBrute() {
     else {
         Brute solver(p_arr, size);
         last_tick = clock();
-        result = solver.Run(p_arr, size);
+        result = solver.Run();
         cur_tick = clock();
 
         printLines(cout, result);
@@ -124,7 +124,7 @@ void PatternsMainWindow::OnLoadFast() {
     else {
         Fast solver(p_arr, size);
         last_tick = clock();
-        result = solver.Run(p_arr, size);
+        result = solver.Run();
         cur_tick = clock();
 
         printLines(cout, result);
