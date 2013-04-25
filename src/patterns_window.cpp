@@ -168,12 +168,12 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
             margin + h_offset + real_h, margin + static_cast<int>(1.0 * real_w / 5 * i),
             margin + h_offset + real_h - 4);
         painter.drawText(static_cast<int>(1.0 * real_w / 5 * i),
-                margin + h_offset + real_h, 2 * margin, margin, Qt::AlignCenter | Qt::AlignJustify,
+                margin + h_offset + real_h, 2 * margin, margin, Qt::AlignCenter,
                 QString("%1").arg(leftX + static_cast<int>(1.0 * (rightX - leftX) / 5 * i)));
         painter.drawLine(margin, margin + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
             margin + 4, margin + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i));
         painter.drawText(0, margin / 2 + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
-                margin, margin, Qt::AlignCenter | Qt::AlignJustify,
+                2 * margin, margin, Qt::AlignCenter,
                 QString("%1").arg(bottomY + static_cast<int>(1.0 * (topY - bottomY) / 5 * i)));
     }
     painter.end();
