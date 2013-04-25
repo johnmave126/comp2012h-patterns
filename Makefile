@@ -99,11 +99,11 @@ all: path $(TARGET) resource
 
 $(DESTDIR)/Brute: $(UICDECLS) $(OBJECTS) $(OBJMOC) $(BRUTE_O)
 	test -d build_bin/ || mkdir -p build_bin/
-	$(LINK) $(LFLAGS) -o $(DESTDIR)/Brute $(OBJECTS) $(BRUTE_O) $(OBJMOC) $(OBJCOMP) $(LIBS)
+	$(LINK) $(LFLAGS) -o $(DESTDIR)/Brute $(OBJECTS) $(BRUTE_O) $(OBJCOMP) $(LIBS)
 
 $(DESTDIR)/Fast: $(UICDECLS) $(OBJECTS) $(OBJMOC) $(FAST_O)
 	test -d build_bin/ || mkdir -p build_bin/
-	$(LINK) $(LFLAGS) -o $(DESTDIR)/Fast $(OBJECTS) $(FAST_O) $(OBJMOC) $(OBJCOMP) $(LIBS)
+	$(LINK) $(LFLAGS) -o $(DESTDIR)/Fast $(OBJECTS) $(FAST_O) $(OBJCOMP) $(LIBS)
 
 $(DESTDIR)/PointPlotter: $(UICDECLS) $(OBJECTS) $(OBJMOC) $(PLOTTER_O)
 	test -d build_bin/ || mkdir -p build_bin/
