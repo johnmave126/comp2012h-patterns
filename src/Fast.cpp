@@ -37,6 +37,7 @@ void print_help() {
 }
 
 int main(int argc, char **argv) {
+    int i;
     Deque<LineSeg> res;
     Point *p_arr;
     int size;
