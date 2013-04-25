@@ -36,6 +36,16 @@ LineSeg::LineSeg(int s)
     memset(arr_point, 0, sizeof(Point*) * s);
 }
 
+LineSeg& LineSeg::operator=(const LineSeg& l) {
+    if(arr_point) {
+        delete [] arr_point;
+    }
+    size = l.size;
+    arr_point = new Point*[size];
+    memcpy(arr_point, l.arr_point, size * sizeof(Point*));
+    return (*this);
+}
+
 ostream& operator<<(ostream& os, const LineSeg& l) {
     int i, s = l.getSize();
     os << s << ":";

@@ -33,6 +33,9 @@ class LineSeg {
 
         /* conversion constructor */
         LineSeg(int);
+
+        /* assign operator */
+        LineSeg& operator=(const LineSeg&);
         
         /* operator[] for iterate */
         inline Point*& operator[](int);
