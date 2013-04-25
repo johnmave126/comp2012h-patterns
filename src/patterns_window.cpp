@@ -12,6 +12,7 @@
 #include "patterns_window.h"
 #include "patterns_common.h"
 #include <ctime>
+#include <cmath>
 #include <iostream>
 #include <qmainwindow.h>
 #include <qapplication.h>
@@ -25,7 +26,8 @@
 using std::cout;
 
 PatternsMainWindow::PatternsMainWindow(QWidget* parent, const char* name) 
-:QMainWindow(parent, name), p_arr(NULL), size(0) {
+:QMainWindow(parent, name), p_arr(NULL), size(0),
+ min_x(0), max_x(32768), min_y(0), max_y(32768) {
     //Create File Menu
     //File Menu Begin
     QPopupMenu* file = new QPopupMenu(this);
@@ -142,7 +144,30 @@ void PatternsMainWindow::ShowAbout() {
 }
 
 void PatternsMainWindow::paintEvent(QPaintEvent*) {
+    int h_offset = menuBar()->height(), w_offset = 10,
+        real_h = height() - menuBar()->height - 20,
+        real_w = width() - 20;
+    int leftX = floor(min_x * 0.9), rightX = ceil(max_x * 1.1), 
+        bottomY = floor(min_y * 0.9), topY = ceil(max_y * 1.1);
+    double scaleX = 1.0 * real_w / (rightX - leftX),
+        scaleY = 1.0 * real_h / (topY - bottomY);
+    QPainter painter();
+    int i;
 
+    painter.begin(this);
+    //Draw Axis
+    painter.drawLine(10, 10 + h_offset + real_h, 10 + real_w, 10 + h_offset + real_h);
+    painter.drawLine(10, 10 + h_offset + real_h, 10, h_offset + 10);
+
+    //Draw ruler
+    for(i = 1; i <= 5; i++) {
+        painter.drawLine(10 + (int)(1. 0 * real_w / 5 * i),
+            10 + h_offset + real_h, 10 + (int)(1. 0 * real_w / 5 * i),
+            10 + h_offset + real_h - 4);
+        painter.drawLine(10, 10 + h_offset + real_h - (int)(1. 0 * real_h / 5 * i),
+            14, 10 + h_offset + real_h - (int)(1. 0 * real_h / 5 * i));
+    }
+    painter.end();
 }
 
 void PatternsMainWindow::processPoints() {
