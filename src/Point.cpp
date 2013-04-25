@@ -32,7 +32,7 @@ Point::Point(int px, int py)
 
 void Point::draw(QPainter *painter, double scaleX, double scaleY, int leftX, int bottomY) const {
     painter->setBrush(QColor(29, 37, 183));
-    painter->drawEllipse( static_cast<int>(x * scaleX + leftX) - 3, static_cast<int>(bottomY - y * scaleY) - 3, 6, 6);
+    painter->drawEllipse( static_cast<int>(x * scaleX + leftX) - 2, static_cast<int>(bottomY - y * scaleY) - 2, 4, 4);
 }
 
 void Point::drawTo(const Point& p, QPainter *painter, double scaleX, double scaleY, int leftX, int bottomY) const {
