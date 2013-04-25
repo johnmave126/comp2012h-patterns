@@ -55,7 +55,7 @@ class Point: public Vector2D {
          *
          * draw a point
          */
-        void draw(QPainter *painter, double scaleX, double scaleY, double leftX, double bottomY) const;
+        void draw(QPainter *painter, double scaleX, double scaleY, int leftX, int bottomY) const;
         
         /*
          * drawTo
@@ -69,7 +69,7 @@ class Point: public Vector2D {
          *
          * draw a line between this line and the p
          */
-        void drawTo(const Point& p, QPainter *painter, double scaleX, double scaleY, double leftX, double bottomY) const;
+        void drawTo(const Point& p, QPainter *painter, double scaleX, double scaleY, int leftX, int bottomY) const;
         
 };
 

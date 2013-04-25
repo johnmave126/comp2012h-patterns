@@ -29,7 +29,7 @@ PatternsMainWindow::PatternsMainWindow(QWidget* parent, const char* name)
 :QMainWindow(parent, name), p_arr(NULL), size(0),
  min_x(0), max_x(32768), min_y(0), max_y(32768) {
     //Set size
-    setMinimumSize(400, 600);
+    setMinimumSize(600, 400);
     //Create File Menu
     //File Menu Begin
     QPopupMenu* file = new QPopupMenu(this);
@@ -146,7 +146,7 @@ void PatternsMainWindow::ShowAbout() {
 }
 
 void PatternsMainWindow::paintEvent(QPaintEvent*) {
-    const int margin = 20;
+    const int margin = 30;
     int h_offset = menuBar()->height(),
         real_h = height() - menuBar()->height() - 2 * margin,
         real_w = width() - 2 * margin;
@@ -156,8 +156,8 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
         topY = static_cast<int>(ceil(max_y * 1.1));
     double scaleX = 1.0 * real_w / (rightX - leftX),
         scaleY = 1.0 * real_h / (topY - bottomY);
-    double real_left = margin - leftX * scaleX,
-        real_top = h_offset + margin + topY * scaleY;
+    int real_left = static_cast<int>(margin - leftX * scaleX),
+        real_top = static_cast<int>(h_offset + margin + topY * scaleY);
     QPainter painter;
     int i;
 
@@ -171,7 +171,7 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
         painter.drawLine(margin + static_cast<int>(1.0 * real_w / 5 * i),
             margin + h_offset + real_h, margin + static_cast<int>(1.0 * real_w / 5 * i),
             margin + h_offset + real_h - 4);
-        painter.drawText(static_cast<int>(1.0 * real_w / 5 * i),
+        painter.drawText(margin + static_cast<int>(1.0 * real_w / 5 * i),
                 margin + h_offset + real_h, 2 * margin, margin, Qt::AlignCenter,
                 QString("%1").arg(leftX + 1.0 * (rightX - leftX) / 5 * i, 0, 'f', 1));
         painter.drawLine(margin, margin + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
