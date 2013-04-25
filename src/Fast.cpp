@@ -30,7 +30,7 @@ void print_help() {
     cout << "  -h                    display this help and exit" << endl;
     cout << endl;
     cout << "Fast takes input from standard input or file, and find" << endl;
-    cout << "lines on which there are four points using Fast" << endl;
+    cout << "lines on which there are four or more points using Fast" << endl;
     cout << "algorithm." << endl;
     cout << endl;
     cout << "Written by TAN, Shuhao <stanab@stu.ust.hk>" << endl;
