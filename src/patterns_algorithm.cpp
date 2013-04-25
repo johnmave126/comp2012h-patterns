@@ -60,7 +60,7 @@ ostream& operator<<(ostream& os, const LineSeg& l) {
 
 inline bool Comparator(Point* const &p1, Point* const &p2) {
     bool f1 = true, f2 = true;
-    int res;
+    int res = (*p1) ^ (*p2);
     //Reverse if below y axis
     if( (p1->getY() < 0) || (p1->getY() == 0 && p1->getX() < 0)) {
         f1 = false;
@@ -68,11 +68,12 @@ inline bool Comparator(Point* const &p1, Point* const &p2) {
     if( (p2->getY() < 0) || (p2->getY() == 0 && p2->getX() < 0)) {
         f2 = false;
     }
-    res = (*p1) ^ (*p2);
     if( (f1 && !f2) || (!f1 && f2) ) {
-        res = -res;
+        return (res < 0) || (res == 0 && (*p1) < (*p2));
     }
-    return (res == 0) ? ((*p1) < (*p2)) : (res > 0);
+    else {
+        return (res > 0) || (res == 0 && (*p1) < (*p2));
+    }
 }
 
 //Used to do a rough sort of Point*
@@ -119,7 +120,7 @@ Deque<LineSeg> Brute(Point* point_list, int size) {
 }
 
 Deque<LineSeg> Fast(Point* point_list, int size) {
-    int i, j, k, onLine, offset = 0, nSize = size;
+    int i, j, k, onLine, nSize = size;
     bool exFlag;
     Point **original_list = new Point*[size];
     Point **sorting_list = new Point*[size];
@@ -136,12 +137,12 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
     for(i = 0; i < size; i++) {
         exFlag = false;
 
-        //Swap the current origin to original_list[offset]
-        tmp_swap = original_list[offset];
-        original_list[offset] = original_list[i];
+        //Swap the current origin to original_list[size - nSize]
+        tmp_swap = original_list[size - nSize];
+        original_list[size - nSize] = original_list[i];
         original_list[i] = tmp_swap;
         //Copy the original into the list
-        memcpy(sorting_list, original_list + offset, nSize * sizeof(Point*));
+        memcpy(sorting_list, original_list + size - nSize, nSize * sizeof(Point*));
 
         origin = sorting_list[0];
 
@@ -194,7 +195,6 @@ Deque<LineSeg> Fast(Point* point_list, int size) {
 
         //Can be eliminated
         if(!exFlag) {
-            offset++;
             nSize--;
         }
     }
