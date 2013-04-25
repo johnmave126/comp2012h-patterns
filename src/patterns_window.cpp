@@ -208,17 +208,16 @@ void PatternsMainWindow::processPoints() {
         if(p_arr[i].getX() < min_x) {
             min_x = p_arr[i].getX();
         }
-        else if(p_arr[i].getX() > max_x) {
+        if(p_arr[i].getX() > max_x) {
             max_x = p_arr[i].getX();
         }
         if(p_arr[i].getY() < min_y) {
             min_y = p_arr[i].getY();
         }
-        else if(p_arr[i].getY() > max_y) {
+        if(p_arr[i].getY() > max_y) {
             max_y = p_arr[i].getY();
         }
     }
     max_x = (max_x - min_x > 6) ? (max_x) : (min_x + 6);
     max_y = (max_y - min_y > 6) ? (max_y) : (min_y + 6);
-    cout << max_x << ' ' << max_y << std::endl;
 }
