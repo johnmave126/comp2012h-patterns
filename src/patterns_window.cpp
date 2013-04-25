@@ -152,7 +152,7 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
         real_w = width() - 2 * margin;
     int leftX = (min_x > 20)?(min_x - 20):(0),
         rightX = (max_x < 32748)?(max_x + 20):(32768), 
-        bottomY = (min_y > 10)?(min_y - 20):(0),
+        bottomY = (min_y > 20)?(min_y - 20):(0),
         topY = (max_y < 32748)?(max_y + 20):(32768);
     double scaleX = 1.0 * real_w / (rightX - leftX),
         scaleY = 1.0 * real_h / (topY - bottomY);
