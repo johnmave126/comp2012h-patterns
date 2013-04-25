@@ -123,7 +123,7 @@ void PatternsMainWindow::OnLoadFast() {
 
         printLines(cout, result);
         QMessageBox::information( this, "Running time",
-            QString("%1 ms").rag(
+            QString("%1 ms").arg(
                 1000.0 * (cur_tick - last_tick) / CLOCKS_PER_SEC, 0, 'f', 2) );
 
         //Call for repaint
