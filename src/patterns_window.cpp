@@ -16,6 +16,8 @@
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qmessagebox.h>
+#include <qmenubar.h>
+#include <qpopupmenu.h>
 
 using std::cout;
 
