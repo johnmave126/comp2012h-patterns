@@ -16,6 +16,7 @@
 #include <qcolor.h>
 #include <qpainter.h>
 #include <iostream>
+#include <qtextstream>
 
 using std::istream;
 using std::ostream;
@@ -75,6 +76,7 @@ class Point: public Vector2D {
 //Reload Input and Output stream
 istream& operator>>(istream&, Point&);
 ostream& operator<<(ostream&, const Point&);
+QTextStream& operator>>(QTextStream&, Point&);
 
 //inline functions
 inline bool Point::isCollinear(const Point &p1, const Point &p2) const {

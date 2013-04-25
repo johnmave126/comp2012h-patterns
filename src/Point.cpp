@@ -13,6 +13,7 @@
 #include "Vector2D.h"
 #include <qcolor.h>
 #include <qpainter.h>
+#include <qtextstream.h>
 
 Point::Point()
 :Vector2D() {
@@ -50,4 +51,12 @@ istream& operator>>(istream& is, Point& p) {
 ostream& operator<<(ostream& os, const Point& p) {
     os << " (" << p.getX() << ", " << p.getY() << ") ";
     return os;
+}
+
+QTextStream& operator>>(QTextStream& is, Point& p) {
+    int x, y;
+    is >> x >> y;
+    p.setX(x);
+    p.setY(y);
+    return is;
 }

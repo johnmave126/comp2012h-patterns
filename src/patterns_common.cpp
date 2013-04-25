@@ -14,7 +14,7 @@
 #include "deque.h"
 #include "patterns_algorithm.h"
 #include <iostream>
-#include <>
+#include <qtextstream.h>
 
 using std::istream;
 using std::ostream;
