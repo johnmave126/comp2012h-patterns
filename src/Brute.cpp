@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
     int size;
     //stdin
     bool flag = true;
-    istream is;
+    ifstream is;
     
     //Process command-line input
     //Omit the filename
@@ -89,7 +89,10 @@ int main(int argc, char **argv) {
     }
 
     if(flag) {
-        is = cin;
+        p_arr = readPoints(cin, &size);
+    }
+    else {
+        p_arr = readPoints(is, &size);
     }
     p_arr = readPoints(is, &size);
     res = Brute(p_arr, size);

@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
     int size;
     //stdin
     bool flag = true;
-    istream is;
+    ifstream is;
     
     //Process command-line input
     //Omit the filename
@@ -89,9 +89,11 @@ int main(int argc, char **argv) {
     }
 
     if(flag) {
-        is = cin;
+        p_arr = readPoints(cin, &size);
     }
-    p_arr = readPoints(is, &size);
+    else {
+        p_arr = readPoints(is, &size);
+    }
     res = Fast(p_arr, size);
     printLines(cout, res);
 
