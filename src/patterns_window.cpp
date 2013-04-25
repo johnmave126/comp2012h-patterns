@@ -147,8 +147,10 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
     int h_offset = menuBar()->height(), w_offset = 10,
         real_h = height() - menuBar()->height() - 20,
         real_w = width() - 20;
-    int leftX = floor(min_x * 0.9), rightX = ceil(max_x * 1.1), 
-        bottomY = floor(min_y * 0.9), topY = ceil(max_y * 1.1);
+    int leftX = static_cast<int>(floor(min_x * 0.9)),
+        rightX = static_cast<int>(ceil(max_x * 1.1)), 
+        bottomY = static_cast<int>(floor(min_y * 0.9)),
+        topY = static_cast<int>(ceil(max_y * 1.1));
     double scaleX = 1.0 * real_w / (rightX - leftX),
         scaleY = 1.0 * real_h / (topY - bottomY);
     QPainter painter;
@@ -161,11 +163,11 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
 
     //Draw ruler
     for(i = 1; i <= 5; i++) {
-        painter.drawLine(10 + floor(1. 0 * real_w / 5 * i),
-            10 + h_offset + real_h, 10 + floor(1. 0 * real_w / 5 * i),
+        painter.drawLine(10 + static_cast<int>(1. 0 * real_w / 5 * i),
+            10 + h_offset + real_h, 10 + static_cast<int>(1. 0 * real_w / 5 * i),
             10 + h_offset + real_h - 4);
-        painter.drawLine(10, 10 + h_offset + real_h - floor(1. 0 * real_h / 5 * i),
-            14, 10 + h_offset + real_h - floor(1. 0 * real_h / 5 * i));
+        painter.drawLine(10, 10 + h_offset + real_h - static_cast<int>(1. 0 * real_h / 5 * i),
+            14, 10 + h_offset + real_h - static_cast<int>(1. 0 * real_h / 5 * i));
     }
     painter.end();
 }
