@@ -86,6 +86,7 @@ int main(int argc, char **argv) {
         else {
             cout << "Fast: invalid input" << endl;
             cout << "Try `Fast -h' for more information." << endl;
+            exit(EXIT_FAILURE);
         }
         i++;
     }

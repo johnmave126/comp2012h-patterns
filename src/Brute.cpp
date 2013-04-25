@@ -86,6 +86,7 @@ int main(int argc, char **argv) {
         else {
             cout << "Brute: invalid input" << endl;
             cout << "Try `Brute -h' for more information." << endl;
+            exit(EXIT_FAILURE);
         }
         i++;
     }
