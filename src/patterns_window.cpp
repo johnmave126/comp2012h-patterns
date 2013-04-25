@@ -184,7 +184,7 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
 
     //Draw Lines
     for(i = 0; i < result.size(); i++, itr++) {
-        (*itr)[0].drawTo((*itr)[itr->getSize() - 1], &painter, scaleX, scaleY, real_left, real_top);
+        (*itr)[0]->drawTo((*itr)[itr->getSize() - 1], &painter, scaleX, scaleY, real_left, real_top);
     }
 
     //Draw ruler text
