@@ -163,11 +163,11 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
 
     //Draw ruler
     for(i = 1; i <= 5; i++) {
-        painter.drawLine(10 + static_cast<int>(1. 0 * real_w / 5 * i),
-            10 + h_offset + real_h, 10 + static_cast<int>(1. 0 * real_w / 5 * i),
+        painter.drawLine(10 + static_cast<int>(1.0 * real_w / 5 * i),
+            10 + h_offset + real_h, 10 + static_cast<int>(1.0 * real_w / 5 * i),
             10 + h_offset + real_h - 4);
-        painter.drawLine(10, 10 + h_offset + real_h - static_cast<int>(1. 0 * real_h / 5 * i),
-            14, 10 + h_offset + real_h - static_cast<int>(1. 0 * real_h / 5 * i));
+        painter.drawLine(10, 10 + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
+            14, 10 + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i));
     }
     painter.end();
 }
