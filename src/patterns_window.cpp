@@ -188,8 +188,8 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
 
 void PatternsMainWindow::processPoints() {
     int i;
-    min_x = min_y = 0;
-    max_x = max_y = 32768;
+    min_x = min_y = 32768;
+    max_x = max_y = 0;
     for(i = 0; i < size; i++) {
         //Process the region of display
         if(p_arr[i].getX() < min_x) {
