@@ -65,7 +65,7 @@ QMetaObject* PatternsMainWindow::staticMetaObject()
     };
     metaObj = QMetaObject::new_metaobject(
 	"PatternsMainWindow", parentObject,
-	slot_tbl, 9,
+	slot_tbl, 5,
 	0, 0,
 #ifndef QT_NO_PROPERTIES
 	0, 0,
