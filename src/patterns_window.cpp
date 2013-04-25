@@ -144,9 +144,10 @@ void PatternsMainWindow::ShowAbout() {
 }
 
 void PatternsMainWindow::paintEvent(QPaintEvent*) {
-    int h_offset = menuBar()->height(), w_offset = 10,
-        real_h = height() - menuBar()->height() - 20,
-        real_w = width() - 20;
+    const int margin = 20;
+    int h_offset = menuBar()->height(), w_offset = margin,
+        real_h = height() - menuBar()->height() - 2 * margin,
+        real_w = width() - 2 * margin;
     int leftX = static_cast<int>(floor(min_x * 0.9)),
         rightX = static_cast<int>(ceil(max_x * 1.1)), 
         bottomY = static_cast<int>(floor(min_y * 0.9)),
@@ -158,16 +159,22 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
 
     painter.begin(this);
     //Draw Axis
-    painter.drawLine(10, 10 + h_offset + real_h, 10 + real_w, 10 + h_offset + real_h);
-    painter.drawLine(10, 10 + h_offset + real_h, 10, h_offset + 10);
+    painter.drawLine(margin, margin + h_offset + real_h, margin + real_w, margin + h_offset + real_h);
+    painter.drawLine(margin, margin + h_offset + real_h, margin, h_offset + margin);
 
     //Draw ruler
-    for(i = 1; i <= 5; i++) {
-        painter.drawLine(10 + static_cast<int>(1.0 * real_w / 5 * i),
-            10 + h_offset + real_h, 10 + static_cast<int>(1.0 * real_w / 5 * i),
-            10 + h_offset + real_h - 4);
-        painter.drawLine(10, 10 + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
-            14, 10 + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i));
+    for(i = 0; i <= 5; i++) {
+        painter.drawLine(margin + static_cast<int>(1.0 * real_w / 5 * i),
+            margin + h_offset + real_h, margin + static_cast<int>(1.0 * real_w / 5 * i),
+            margin + h_offset + real_h - 4);
+        painter.drawText(static_cast<int>(1.0 * real_w / 5 * i),
+                margin + h_offset + real_h, 2 * margin, margin, Qt::AlignCenter | Qt::AlignJustify,
+                QString("%1").arg(leftX + static_cast<int>(1.0 * (rightX - leftX) / 5 * i)));
+        painter.drawLine(margin, margin + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
+            margin + 4, margin + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i));
+        painter.drawText(0, margin / 2 + h_offset + real_h - static_cast<int>(1.0 * real_h / 5 * i),
+                margin, margin, Qt::AlignCenter | Qt::AlignJustify,
+                QString("%1").arg(bottomY + static_cast<int>(1.0 * (topY - bottomY) / 5 * i)));
     }
     painter.end();
 }
