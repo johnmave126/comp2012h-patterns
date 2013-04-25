@@ -180,7 +180,7 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
     }
     if(p_arr) {
         for(i = 0; i < size; i++) {
-            p_arr[i].draw(&painter, scaleY, scaleY, real_left, real_top);
+            p_arr[i].draw(&painter, scaleX, scaleY, real_left, real_top);
         }
     }
     painter.end();
@@ -205,5 +205,6 @@ void PatternsMainWindow::processPoints() {
             max_y = p_arr[i].getY();
         }
     }
-    cout << size << ' ' << min_x << ' ' << max_x << ' ' << min_y << ' ' << max_y;
+    max_x = (max_x - min_x > 6) ? (max_x) : (min_x + 6);
+    max_y = (max_y - min_y > 6) ? (max_y) : (min_y + 6);
 }
