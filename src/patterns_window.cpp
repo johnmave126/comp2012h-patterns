@@ -150,10 +150,10 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
     int h_offset = menuBar()->height(),
         real_h = height() - menuBar()->height() - 2 * margin,
         real_w = width() - 2 * margin;
-    int leftX = static_cast<int>(floor(min_x * 0.9)),
-        rightX = static_cast<int>(ceil(max_x * 1.1)), 
-        bottomY = static_cast<int>(floor(min_y * 0.9)),
-        topY = static_cast<int>(ceil(max_y * 1.1));
+    int leftX = (min_x > 20)?(min_x - 20):(0),
+        rightX = (max_x < 32748)?(max_x + 20):(32768), 
+        bottomY = (min_y > 10)?(min_y - 20):(0),
+        topY = (max_y < 32748)?(max_y + 20):(32768);
     double scaleX = 1.0 * real_w / (rightX - leftX),
         scaleY = 1.0 * real_h / (topY - bottomY);
     int real_left = static_cast<int>(margin - leftX * scaleX),
