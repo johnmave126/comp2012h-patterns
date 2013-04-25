@@ -98,7 +98,8 @@ int main(int argc, char **argv) {
         p_arr = readPoints(is, &size);
     }
     p_arr = readPoints(is, &size);
-    res = Brute(p_arr, size);
+    Brute solver(p_arr, size);
+    res = solve.Run(p_arr, size);
     printLines(cout, res);
 
     delete [] p_arr;

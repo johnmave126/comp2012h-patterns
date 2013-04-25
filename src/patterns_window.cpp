@@ -98,8 +98,9 @@ void PatternsMainWindow::OnLoadBrute() {
             QMessageBox::Ok, QMessageBox::NoButton, QMessageBox::NoButton);
     }
     else {
+        Brute solver(p_arr, size);
         last_tick = clock();
-        result = Brute(p_arr, size);
+        result = solver.Run(p_arr, size);
         cur_tick = clock();
 
         printLines(cout, result);
@@ -121,8 +122,9 @@ void PatternsMainWindow::OnLoadFast() {
             QMessageBox::Ok, QMessageBox::NoButton, QMessageBox::NoButton);
     }
     else {
+        Fast solver(p_arr, size);
         last_tick = clock();
-        result = Fast(p_arr, size);
+        result = solver.Run(p_arr, size);
         cur_tick = clock();
 
         printLines(cout, result);

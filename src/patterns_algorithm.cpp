@@ -58,7 +58,7 @@ ostream& operator<<(ostream& os, const LineSeg& l) {
     return os;
 }
 
-inline bool Comparator(Point* const &p1, Point* const &p2) {
+static inline bool Comparator(Point* const &p1, Point* const &p2) {
     bool f1 = true, f2 = true;
     int res = (*p1) ^ (*p2);
     //Reverse if below y axis
@@ -79,7 +79,18 @@ static inline bool PointCmp(Point* const &a, Point* const &b) {
     return (*a) < (*b);
 }
 
-Deque<LineSeg> Brute(Point* point_list, int size) {
+Brute::Brute()
+:point_list(NULL), size(0) {
+}
+
+Brute::~Brute(){
+}
+
+Brute::Brute(Point* p, int s)
+:point_list(p), size(s) {
+}
+
+Deque<LineSeg> Brute::Run() {
     int i, j, k, l;
     Point **sorting_list = new Point*[size];
     Deque<LineSeg> result;
@@ -117,7 +128,18 @@ Deque<LineSeg> Brute(Point* point_list, int size) {
     return result;
 }
 
-Deque<LineSeg> Fast(Point* point_list, int size) {
+Fast::Fast()
+:point_list(NULL), size(0) {
+}
+
+Fast::~Fast(){
+}
+
+Fast::Fast(Point* p, int s)
+:point_list(p), size(s) {
+}
+
+Deque<LineSeg> Fast::Run() {
     int i, j, k, onLine, nSize = size;
     bool exFlag;
     Point **original_list = new Point*[size];

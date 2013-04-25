@@ -57,27 +57,47 @@ class LineSeg {
 //Reload output
 ostream& operator<<(ostream&, const LineSeg&);
 
-/*
- * Brute
- *
- * point_list: the array of point to solve
- * size: the size of the point_list
- *
- * processing the point_list using Brute Force method and return a deque
- * of LineSeg meeting requirement
- */
-Deque<LineSeg> Brute(Point* point_list, int size);
+class Brute {
+    public:
+        Brute();
+        ~Brute();
 
-/*
- * Brute
- *
- * point_list: the array of point to solve
- * size: the size of the point_list
- *
- * processing the point_list using Fast method and return a deque
- * of LineSeg meeting requirement
- */
-Deque<LineSeg> Fast(Point* point_list, int size);
+        /* conversion constructor */
+        Brute(Point* p, int s);
+
+        /*
+         * Run
+         *
+         * processing the point_list using Brute Force method and return a deque
+         * of LineSeg meeting requirement
+         */
+        Deque<LineSeg> Run();
+
+    private:
+        Point* point_list;
+        int size;
+};
+
+class Fast {
+    public:
+        Fast();
+        ~Fast();
+
+        /* conversion constructor */
+        Fast(Point* p, int s);
+
+        /*
+         * Run
+         *
+         * processing the point_list using Fast method and return a deque
+         * of LineSeg meeting requirement
+         */
+        Deque<LineSeg> Run();
+
+    private:
+        Point* point_list;
+        int size;
+};
 
 //Include those inline functions
 inline Point*& LineSeg::operator[](int idx) {

@@ -97,7 +97,8 @@ int main(int argc, char **argv) {
     else {
         p_arr = readPoints(is, &size);
     }
-    res = Fast(p_arr, size);
+    Fast solver(p_arr, size);
+    res = solve.Run(p_arr, size);
     printLines(cout, res);
 
     delete [] p_arr;
