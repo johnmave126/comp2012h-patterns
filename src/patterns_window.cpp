@@ -151,7 +151,7 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
         bottomY = floor(min_y * 0.9), topY = ceil(max_y * 1.1);
     double scaleX = 1.0 * real_w / (rightX - leftX),
         scaleY = 1.0 * real_h / (topY - bottomY);
-    QPainter painter();
+    QPainter painter;
     int i;
 
     painter.begin(this);
