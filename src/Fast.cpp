@@ -75,6 +75,7 @@ int main(int argc, char **argv) {
                         exit(EXIT_FAILURE);
                     }
                     flag = false;
+                    break;
                 default:
                     //Unrecognized
                     cout << "Fast: unknown option: " << argv[i] << endl;

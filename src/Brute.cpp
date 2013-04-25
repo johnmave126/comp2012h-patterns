@@ -75,6 +75,7 @@ int main(int argc, char **argv) {
                         exit(EXIT_FAILURE);
                     }
                     flag = false;
+                    break;
                 default:
                     //Unrecognized
                     cout << "Brute: unknown option: " << argv[i] << endl;
