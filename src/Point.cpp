@@ -41,7 +41,7 @@ void Point::drawTo(const Point& p, QPainter *painter, double scaleX, double scal
     painter->setPen(pen);
     painter->drawLine(static_cast<int>(x * scaleX + leftX), static_cast<int>(bottomY - y * scaleY),
                     static_cast<int>(p.x * scaleX + leftX), static_cast<int>(bottomY - p.y * scaleY));
-    painter->setPen(Qcolor(255, 255, 255));
+    painter->setPen(QColor(255, 255, 255));
 }
 
 istream& operator>>(istream& is, Point& p) {
