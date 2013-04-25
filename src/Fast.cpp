@@ -68,7 +68,7 @@ int main(int argc, char **argv) {
                         exit(EXIT_FAILURE);
                     }
                     i++;
-                    is = ifstream(argv[i], ifstream::in);
+                    is.open(argv[i], ifstream::in);
                     if(!is) {
                         cout << "Fast: file not found: " << argv[i] << endl;
                         cout << "Try `Fast -h' for more information." << endl;
