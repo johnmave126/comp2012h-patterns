@@ -30,12 +30,12 @@ Point::Point(int px, int py)
 :Vector2D(px, py) {
 }
 
-void Point::draw(QPainter *painter, double scaleX, double scaleY, int leftX, int bottomY) const {
+void Point::draw(QPainter *painter, double scaleX, double scaleY, double leftX, double bottomY) const {
     painter->setBrush(QColor(29, 37, 183));
     painter->drawEllipse( static_cast<int>(x * scaleX + leftX), static_cast<int>(bottomY - y * scaleY), 6, 6);
 }
 
-void Point::drawTo(const Point& p, QPainter *painter, double scaleX, double scaleY, int leftX, int bottomY) const {
+void Point::drawTo(const Point& p, QPainter *painter, double scaleX, double scaleY, double leftX, double bottomY) const {
     painter->drawLine(static_cast<int>(x * scaleX + leftX), static_cast<int>(bottomY - y * scaleY),
                     static_cast<int>(p.x * scaleX + leftX), static_cast<int>(bottomY - p.y * scaleY));
 }

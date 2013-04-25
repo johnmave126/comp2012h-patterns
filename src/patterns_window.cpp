@@ -28,6 +28,8 @@ using std::cout;
 PatternsMainWindow::PatternsMainWindow(QWidget* parent, const char* name) 
 :QMainWindow(parent, name), p_arr(NULL), size(0),
  min_x(0), max_x(32768), min_y(0), max_y(32768) {
+    //Set size
+    setMinimumSize(400, 600);
     //Create File Menu
     //File Menu Begin
     QPopupMenu* file = new QPopupMenu(this);
@@ -154,8 +156,8 @@ void PatternsMainWindow::paintEvent(QPaintEvent*) {
         topY = static_cast<int>(ceil(max_y * 1.1));
     double scaleX = 1.0 * real_w / (rightX - leftX),
         scaleY = 1.0 * real_h / (topY - bottomY);
-    int real_left = static_cast<int>(margin - leftX * scaleX),
-        real_top = static_cast<int>(h_offset + margin + topY * scaleY);
+    double real_left = margin - leftX * scaleX,
+        real_top = h_offset + margin + topY * scaleY;
     QPainter painter;
     int i;
 
